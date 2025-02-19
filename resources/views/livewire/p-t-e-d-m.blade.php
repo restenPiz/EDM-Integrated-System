@@ -6,12 +6,12 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">Users</h4>
+                        <h4 class="mb-sm-0">PT-EDM</h4>
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 {{-- <li class="breadcrumb-item"><a href="javascript: void(0);">Ecommerce</a></li> --}}
-                                <li class="breadcrumb-item active">Users</li>
+                                <li class="breadcrumb-item active">PT-EDM</li>
                             </ol>
                         </div>
 
@@ -28,16 +28,13 @@
                             <div class="row g-4 align-items-center">
                                 <div class="col-sm">
                                     <div>
-                                        <h5 class="card-title mb-0">Users List</h5>
+                                        <h5 class="card-title mb-0">PT List</h5>
                                     </div>
                                 </div>
                                 <div class="col-sm-auto">
                                     <div class="d-flex flex-wrap align-items-start gap-2">
                                         <button class="btn btn-soft-danger" id="remove-actions"
                                             onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button>
-                                        <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal"
-                                            id="create-btn" data-bs-target="#showModal"><i
-                                                class="ri-add-line align-bottom me-1"></i> Add Users</button>
                                         <button type="button" class="btn btn-info"><i
                                                 class="ri-file-download-line align-bottom me-1"></i> Import</button>
                                     </div>
@@ -47,21 +44,25 @@
                         <div class="card-body border-bottom-dashed border-bottom">
                             <form>
                                 <div class="row g-3">
-                                    <div class="col-xl-6">
+                                    <div class="col-xl-4">
                                         <div class="search-box">
-                                            <input type="text" class="form-control search"
-                                                placeholder="Search for customer, email, phone, status or something...">
-                                            <i class="ri-search-line search-icon"></i>
+                                            <input type="text" class="form-control"
+                                                placeholder="Write the name or code of that PT - EDM">
                                         </div>
                                     </div>
                                     <!--end col-->
-                                    <div class="col-xl-6">
+                                    <div class="col-xl-8">
                                         <div class="row g-3">
                                             <div class="col-sm-4">
-                                                <div class="">
-                                                    <input type="text" class="form-control" id="datepicker-range"
-                                                        data-provider="flatpickr" data-date-format="d M, Y"
-                                                        data-range-date="true" placeholder="Select date">
+                                                <div>
+                                                    <select class="form-control" data-plugin="choices" data-choices
+                                                        data-choices-search-false name="choices-single-default"
+                                                        id="idStatus">
+                                                        <option value="">Status</option>
+                                                        <option value="all" selected>All</option>
+                                                        <option value="Active">Active</option>
+                                                        <option value="Block">Block</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <!--end col-->
@@ -81,9 +82,9 @@
 
                                             <div class="col-sm-4">
                                                 <div>
-                                                    <button type="button" class="btn btn-primary w-100"
-                                                        onclick="SearchData();"> <i
-                                                            class="ri-equalizer-fill me-2 align-bottom"></i>Filters</button>
+                                                    <button type="button" class="btn btn-success w-100"
+                                                        onclick="SearchData();"><i
+                                                class="ri-add-line align-bottom me-1"></i>Add PT-EDM</button>
                                                 </div>
                                             </div>
                                             <!--end col-->
@@ -106,12 +107,11 @@
                                                     </div>
                                                 </th>
 
-                                                <th class="sort" data-sort="customer_name">Customer</th>
-                                                <th class="sort" data-sort="email">Email</th>
-                                                <th class="sort" data-sort="phone">Phone</th>
-                                                <th class="sort" data-sort="date">Joining Date</th>
-                                                <th class="sort" data-sort="status">Status</th>
-                                                <th class="sort" data-sort="action">Action</th>
+                                                <th class="sort" data-sort="customer_name">PT Code / Name</th>
+                                                <th class="sort" data-sort="email">Location</th>
+                                                <th class="sort" data-sort="phone">Another Location</th>
+                                                <th class="sort" data-sort="phone">Created_at</th>
+                                                <th class="sort" data-sort="phone"></th>
                                             </tr>
                                         </thead>
                                         <tbody class="list form-check-all">
@@ -128,9 +128,6 @@
                                                 <td class="email">marycousar@velzon.com</td>
                                                 <td class="phone">580-464-4694</td>
                                                 <td class="date">06 Apr, 2021</td>
-                                                <td class="status"><span
-                                                        class="badge badge-soft-success text-uppercase">Active</span>
-                                                </td>
                                                 <td>
                                                     <ul class="list-inline hstack gap-2 mb-0">
                                                         <li class="list-inline-item edit" data-bs-toggle="tooltip"
