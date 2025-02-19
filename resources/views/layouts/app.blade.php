@@ -1299,19 +1299,20 @@
     
 
     <!--start back-to-top-->
+   <!--start back-to-top-->
     <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
         <i class="ri-arrow-up-line"></i>
     </button>
     <!--end back-to-top-->
 
     <!--preloader-->
-    <div id="preloader">
+    {{-- <div id="preloader">
         <div id="status">
             <div class="spinner-border text-primary avatar-sm" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div class="customizer-setting d-none d-md-block">
         <div class="btn-info btn-rounded shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
@@ -1319,6 +1320,8 @@
         </div>
     </div>
 
+
+    <!-- Theme Settings -->
     <!-- Theme Settings -->
     <div class="offcanvas offcanvas-end border-0" tabindex="-1" id="theme-settings-offcanvas">
         <div class="d-flex align-items-center bg-primary bg-gradient p-3 offcanvas-header">
@@ -1982,24 +1985,24 @@
         </div>
     </div>
     <!-- JAVASCRIPT -->
-    <script src="./assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="./assets/libs/simplebar/simplebar.min.js"></script>
-    <script src="./assets/libs/node-waves/waves.min.js"></script>
-    <script src="./assets/libs/feather-icons/feather.min.js"></script>
-    <script src="./assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
-    <script src="./assets/js/plugins.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="assets/libs/node-waves/waves.min.js"></script>
+    <script src="assets/libs/feather-icons/feather.min.js"></script>
+    <script src="assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
+    <script src="assets/js/plugins.js"></script>
 
     <!-- dragula init js -->
-    <script src="./assets/libs/dragula/dragula.min.js"></script>
+    <script src="assets/libs/dragula/dragula.min.js"></script>
 
     <!-- dom autoscroll -->
-    <script src="./assets/libs/dom-autoscroller/dom-autoscroller.min.js"></script>
+    <script src="assets/libs/dom-autoscroller/dom-autoscroller.min.js"></script>
 
     <!--taks-kanban-->
-    <script src="./assets/js/pages/tasks-kanban.init.js"></script>
+    <script src="assets/js/pages/tasks-kanban.init.js"></script>
 
     <!-- App js -->
-    <script src="./assets/js/app.js"></script>
+    <script src="assets/js/app.js"></script>
     </body>
 
 </html>
