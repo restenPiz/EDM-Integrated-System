@@ -27,4 +27,8 @@ Volt::route('/Reports', 'reports')
     ->middleware(['auth'])
     ->name('Reports');
 
+Volt::route('/ReportDetails', 'report-details')
+    ->middleware(['auth'])
+    ->name('ReportDetails');
+
 require __DIR__ . '/auth.php';

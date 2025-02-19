@@ -106,12 +106,11 @@
                                                     </div>
                                                 </th>
 
-                                                <th class="sort" data-sort="customer_name">Customer</th>
+                                                <th class="sort" data-sort="customer_name">Username</th>
                                                 <th class="sort" data-sort="email">Email</th>
                                                 <th class="sort" data-sort="phone">Phone</th>
-                                                <th class="sort" data-sort="date">Joining Date</th>
-                                                <th class="sort" data-sort="status">Status</th>
-                                                <th class="sort" data-sort="action">Action</th>
+                                                <th class="sort" data-sort="date">Created_at</th>
+                                                <th class="sort" data-sort="action"></th>
                                             </tr>
                                         </thead>
                                         <tbody class="list form-check-all">
@@ -122,15 +121,19 @@
                                                             value="option1">
                                                     </div>
                                                 </th>
-                                                <td class="id" style="display:none;"><a href="javascript:void(0);"
-                                                        class="fw-medium link-primary">#VZ2101</a></td>
-                                                <td class="customer_name">Mary Cousar</td>
+                                               <td>
+                                                    <div class="d-flex gap-2 align-items-center">
+                                                        <div class="flex-shrink-0">
+                                                            <img src="assets/images/users/avatar-1.jpg" alt="" class="avatar-xs rounded-circle" />
+                                                        </div>
+                                                        <div class="flex-grow-1">
+                                                            Jason schuller
+                                                        </div>
+                                                    </div>
+                                                </td>
                                                 <td class="email">marycousar@velzon.com</td>
                                                 <td class="phone">580-464-4694</td>
                                                 <td class="date">06 Apr, 2021</td>
-                                                <td class="status"><span
-                                                        class="badge badge-soft-success text-uppercase">Active</span>
-                                                </td>
                                                 <td>
                                                     <ul class="list-inline hstack gap-2 mb-0">
                                                         <li class="list-inline-item edit" data-bs-toggle="tooltip"
