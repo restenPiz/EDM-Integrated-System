@@ -107,7 +107,7 @@
                                                     </div>
                                                 </th>
                                                 <td class="date">
-                                                    <a href="#" wire:navigate>#ABC123</a>
+                                                    <a href="{{route('ReportDetails')}}" wire:navigate>#ABC123</a>
                                                 </td>
                                                 <td>Mauro Peniel</td>
                                                 <td>mauropeniel7@gmail.com</td>
