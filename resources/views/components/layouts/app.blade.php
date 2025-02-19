@@ -181,7 +181,7 @@
                             <div class="collapse menu-dropdown" id="sidebarApps">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="{{route('PTEDM')}}" class="nav-link {{ request()->routeIs('PTEDM') ? 'active' : '' }}" wire:navigate> Review the PT - EDM </a>
+                                        <a href="{{route('PTEDM')}}" class="nav-link {{ request()->routeIs('PTEDM') ? 'active' : '' }}" data-key="t-calendar" wire:navigate> Review the PT - EDM </a>
                                     </li>
                                 </ul>
                             </div>

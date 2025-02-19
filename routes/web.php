@@ -15,8 +15,16 @@ Route::view('profile', 'profile')
     ->name('profile');
 
 //*Start with the main pages route
-Volt::route('/PTEDM', 'p-t-e-d-m.blade.php')
+Volt::route('/PTEDM', 'p-t-e-d-m')
     ->middleware(['auth'])
     ->name('PTEDM');
+
+Volt::route('/Users', 'users')
+    ->middleware(['auth'])
+    ->name('Users');
+
+Volt::route('/Reports', 'reports')
+    ->middleware(['auth'])
+    ->name('Reports');
 
 require __DIR__ . '/auth.php';
