@@ -190,19 +190,19 @@
                         <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Reports</span></li>
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="{{route('Users')}}" wire:navigate>
+                            <a class="nav-link menu-link {{ request()->routeIs('Users') ? 'active' : '' }}" href="{{route('Users')}}" wire:navigate>
                                 <i class="ri-account-circle-line"></i> <span data-key="t-authentication">Users</span>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarPages" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarPages">
+                            <a class="nav-link menu-link {{ request()->routeIs('Reports') ? 'active' : '' }}" href="#sidebarPages" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarPages">
                                 <i class="ri-pages-line"></i> <span data-key="t-pages">Reports</span>
                             </a>
                             <div class="collapse menu-dropdown" id="sidebarPages">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="{{route('Reports')}}" class="nav-link" data-key="t-starter" wire:navigate> Review the Techinician Reports </a>
+                                        <a href="{{route('Reports')}}" class="nav-link {{ request()->routeIs('Reports') ? 'active' : '' }}" data-key="t-starter" wire:navigate> Review the Techinician Reports </a>
                                     </li>
                                     
                                 </ul>
