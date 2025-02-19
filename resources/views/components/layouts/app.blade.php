@@ -256,6 +256,12 @@
     <script src="assets/libs/feather-icons/feather.min.js"></script>
     <script src="assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
     <script src="assets/js/plugins.js"></script>
+    <!-- list.js min js -->
+    <script src="assets/libs/list.js/list.min.js"></script>
+    <script src="assets/libs/list.pagination.js/list.pagination.min.js"></script>
+
+    <!--ecommerce-customer init js -->
+    <script src="assets/js/pages/ecommerce-customer-list.init.js"></script>
 
     <!-- dragula init js -->
     <script src="assets/libs/dragula/dragula.min.js"></script>
