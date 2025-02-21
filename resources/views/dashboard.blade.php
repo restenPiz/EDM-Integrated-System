@@ -214,6 +214,8 @@
                                     </div>
                                     <!--end tasks-->
                                 </div>
+                                
+                                {{--*Start with the button to add the occurrences--}}
                                 <div class="my-3">
                                     <button class="btn btn-soft-info w-100" data-bs-toggle="modal"
                                         data-bs-target="#creatertaskModal">Add More</button>
@@ -307,10 +309,7 @@
                                         <!--end card-->
                                     </div>
                                 </div>
-                                <div class="my-3">
-                                    <button class="btn btn-soft-info w-100" data-bs-toggle="modal"
-                                        data-bs-target="#creatertaskModal">Add More</button>
-                                </div>
+                                
                             </div>
                             <!--end tasks-list-->
                             <div class="tasks-list">
@@ -434,10 +433,7 @@
                                         <!--end card-->
                                     </div>
                                 </div>
-                                <div class="my-3">
-                                    <button class="btn btn-soft-info w-100" data-bs-toggle="modal"
-                                        data-bs-target="#creatertaskModal">Add More</button>
-                                </div>
+                                
                             </div>
                             <!--end tasks-list-->
 
@@ -574,10 +570,7 @@
                                         <!--end card-->
                                     </div>
                                 </div>
-                                <div class="my-3">
-                                    <button class="btn btn-soft-info w-100" data-bs-toggle="modal"
-                                        data-bs-target="#creatertaskModal">Add More</button>
-                                </div>
+                                
                             </div>
                             <!--end tasks-list-->
                             
@@ -714,10 +707,7 @@
                                         <!--end card-->
                                     </div>
                                 </div>
-                                <div class="my-3">
-                                    <button class="btn btn-soft-info w-100" data-bs-toggle="modal"
-                                        data-bs-target="#creatertaskModal">Add More</button>
-                                </div>
+                                
                             </div>
                             <!--end tasks-list-->
                         </div>
