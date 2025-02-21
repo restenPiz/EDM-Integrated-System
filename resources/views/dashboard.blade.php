@@ -119,7 +119,7 @@
                             <div class="tasks-list">
                                 <div class="d-flex mb-3">
                                     <div class="flex-grow-1">
-                                        <h6 class="fs-14 text-uppercase fw-semibold mb-0">Unassigned <small
+                                        <h6 class="fs-14 text-uppercase fw-semibold mb-0">New <small
                                                 class="badge bg-success align-bottom ms-1 totaltask-badge">2</small>
                                         </h6>
                                     </div>
@@ -765,314 +765,12 @@
                                 </div>
                             </div>
                             <!--end tasks-list-->
-                            <div class="tasks-list">
-                                <div class="d-flex mb-3">
-                                    <div class="flex-grow-1">
-                                        <h6 class="fs-14 text-uppercase fw-semibold mb-0">In Reviews <small
-                                                class="badge bg-info align-bottom ms-1 totaltask-badge">3</small></h6>
-                                    </div>
-                                    <div class="flex-shrink-0">
-                                        <div class="dropdown card-header-dropdown">
-                                            <a class="text-reset dropdown-btn" href="#"
-                                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <span class="fw-medium text-muted fs-12">Priority<i
-                                                        class="mdi mdi-chevron-down ms-1"></i></span>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" href="#">Priority</a>
-                                                <a class="dropdown-item" href="#">Date Added</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div data-simplebar class="tasks-wrapper px-3 mx-n3">
-                                    <div id="reviews-task" class="tasks">
-                                        <div class="card tasks-box">
-                                            <div class="card-body">
-                                                <div class="d-flex mb-2">
-                                                    <a href="javascript:void(0)"
-                                                        class="text-muted fw-medium fs-14 flex-grow-1">#VL2453</a>
-                                                    <div class="dropdown">
-                                                        <a href="javascript:void(0);" class="text-muted"
-                                                            id="dropdownMenuLink7" data-bs-toggle="dropdown"
-                                                            aria-expanded="false"><i class="ri-more-fill"></i></a>
-                                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink7">
-                                                            <li><a class="dropdown-item"
-                                                                    href="apps-tasks-details.html"><i
-                                                                        class="ri-eye-fill align-bottom me-2 text-muted"></i>
-                                                                    View</a>
-                                                            </li>
-                                                            <li><a class="dropdown-item" href="#"><i
-                                                                        class="ri-edit-2-line align-bottom me-2 text-muted"></i>
-                                                                    Edit</a></li>
-                                                            <li><a class="dropdown-item" data-bs-toggle="modal"
-                                                                    href="#deleteRecordModal"><i
-                                                                        class="ri-delete-bin-5-line align-bottom me-2 text-muted"></i>
-                                                                    Delete</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <h6 class="fs-15 text-truncate task-title"><a
-                                                        href="apps-tasks-details.html" class="d-block">Create Product
-                                                        Animations</a></h6>
-                                                <div class="tasks-img rounded"
-                                                    style="background-image: url('assets/images/small/img-7.jpg');">
-                                                </div>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-grow-1">
-                                                        <span class="badge badge-soft-primary">Ecommerce</span>
-                                                    </div>
-                                                    <div class="flex-shrink-0">
-                                                        <div class="avatar-group">
-                                                            <a href="javascript: void(0);" class="avatar-group-item"
-                                                                data-bs-toggle="tooltip" data-bs-trigger="hover"
-                                                                data-bs-placement="top" title="Anna">
-                                                                <img src="assets/images/users/avatar-1.jpg"
-                                                                    alt="" class="rounded-circle avatar-xxs">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-footer border-top-dashed">
-                                                <div class="d-flex">
-                                                    <div class="flex-grow-1">
-                                                        <span class="text-muted"><i
-                                                                class="ri-time-line align-bottom"></i> 16 Nov,
-                                                            2021</span>
-                                                    </div>
-                                                    <div class="flex-shrink-0">
-                                                        <ul class="link-inline mb-0">
-                                                            <li class="list-inline-item">
-                                                                <a href="javascript:void(0)" class="text-muted"><i
-                                                                        class="ri-eye-line align-bottom"></i> 08</a>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <a href="javascript:void(0)" class="text-muted"><i
-                                                                        class="ri-question-answer-line align-bottom"></i>
-                                                                    54</a>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <a href="javascript:void(0)" class="text-muted"><i
-                                                                        class="ri-attachment-2 align-bottom"></i>
-                                                                    28</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--end card-body-->
-                                            <div class="progress progress-sm">
-                                                <div class="progress-bar bg-success" role="progressbar"
-                                                    style="width: 100%" aria-valuenow="55" aria-valuemin="0"
-                                                    aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                        <!--end card-->
-                                        <div class="card tasks-box">
-                                            <div class="card-body">
-                                                <div class="d-flex mb-2">
-                                                    <a href="javascript:void(0)"
-                                                        class="text-muted fw-medium fs-14 flex-grow-1">#VL2340</a>
-                                                    <div class="dropdown">
-                                                        <a href="javascript:void(0);" class="text-muted"
-                                                            id="dropdownMenuLink8" data-bs-toggle="dropdown"
-                                                            aria-expanded="false"><i class="ri-more-fill"></i></a>
-                                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink8">
-                                                            <li><a class="dropdown-item"
-                                                                    href="apps-tasks-details.html"><i
-                                                                        class="ri-eye-fill align-bottom me-2 text-muted"></i>
-                                                                    View</a>
-                                                            </li>
-                                                            <li><a class="dropdown-item" href="#"><i
-                                                                        class="ri-edit-2-line align-bottom me-2 text-muted"></i>
-                                                                    Edit</a></li>
-                                                            <li><a class="dropdown-item" data-bs-toggle="modal"
-                                                                    href="#deleteRecordModal"><i
-                                                                        class="ri-delete-bin-5-line align-bottom me-2 text-muted"></i>
-                                                                    Delete</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <h6 class="fs-15 text-truncate task-title"><a
-                                                        href="apps-tasks-details.html" class="d-block">Product
-                                                        Features Analysis</a></h6>
-                                                <p class="text-muted">An essential part of strategic planning is
-                                                    running a product
-                                                    feature analysis.</p>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-grow-1">
-                                                        <span class="badge badge-soft-primary">Product</span>
-                                                        <span class="badge badge-soft-primary">Analysis</span>
-                                                    </div>
-                                                    <div class="flex-shrink-0">
-                                                        <div class="avatar-group">
-                                                            <a href="javascript: void(0);" class="avatar-group-item"
-                                                                data-bs-toggle="tooltip" data-bs-trigger="hover"
-                                                                data-bs-placement="top" title="Nancy">
-                                                                <img src="assets/images/users/avatar-5.jpg"
-                                                                    alt="" class="rounded-circle avatar-xxs">
-                                                            </a>
-                                                            <a href="javascript: void(0);" class="avatar-group-item"
-                                                                data-bs-toggle="tooltip" data-bs-trigger="hover"
-                                                                data-bs-placement="top" title="Alexis">
-                                                                <img src="assets/images/users/avatar-6.jpg"
-                                                                    alt="" class="rounded-circle avatar-xxs">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--end card-body-->
-                                            <div class="card-footer border-top-dashed">
-                                                <div class="d-flex">
-                                                    <div class="flex-grow-1">
-                                                        <span class="text-muted"><i
-                                                                class="ri-time-line align-bottom"></i> 05 Jan,
-                                                            2022</span>
-                                                    </div>
-                                                    <div class="flex-shrink-0">
-                                                        <ul class="link-inline mb-0">
-                                                            <li class="list-inline-item">
-                                                                <a href="javascript:void(0)" class="text-muted"><i
-                                                                        class="ri-eye-line align-bottom"></i> 14</a>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <a href="javascript:void(0)" class="text-muted"><i
-                                                                        class="ri-question-answer-line align-bottom"></i>
-                                                                    31</a>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <a href="javascript:void(0)" class="text-muted"><i
-                                                                        class="ri-attachment-2 align-bottom"></i>
-                                                                    07</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--end card-body-->
-                                            <div class="progress progress-sm">
-                                                <div class="progress-bar bg-warning" role="progressbar"
-                                                    style="width: 67%" aria-valuenow="67" aria-valuemin="0"
-                                                    aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                        <!--end card-->
-                                        <div class="card tasks-box">
-                                            <div class="card-body">
-                                                <div class="d-flex mb-2">
-                                                    <a href="javascript:void(0)"
-                                                        class="text-muted fw-medium fs-14 flex-grow-1">#VL2462</a>
-                                                    <div class="dropdown">
-                                                        <a href="javascript:void(0);" class="text-muted"
-                                                            id="dropdownMenuLink9" data-bs-toggle="dropdown"
-                                                            aria-expanded="false"><i class="ri-more-fill"></i></a>
-                                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink9">
-                                                            <li><a class="dropdown-item"
-                                                                    href="apps-tasks-details.html"><i
-                                                                        class="ri-eye-fill align-bottom me-2 text-muted"></i>
-                                                                    View</a>
-                                                            </li>
-                                                            <li><a class="dropdown-item" href="#"><i
-                                                                        class="ri-edit-2-line align-bottom me-2 text-muted"></i>
-                                                                    Edit</a></li>
-                                                            <li><a class="dropdown-item" data-bs-toggle="modal"
-                                                                    href="#deleteRecordModal"><i
-                                                                        class="ri-delete-bin-5-line align-bottom me-2 text-muted"></i>
-                                                                    Delete</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <h6 class="fs-15 text-truncate task-title"><a
-                                                        href="apps-tasks-details.html" class="d-block">Create a Graph
-                                                        of Sketch</a></h6>
-                                                <p class="text-muted">To make a pie chart with equal slices create a
-                                                    perfect circle by
-                                                    selecting an Oval Tool.</p>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-grow-1">
-                                                        <span class="badge badge-soft-primary">Sketch</span>
-                                                        <span class="badge badge-soft-primary">Marketing</span>
-                                                        <span class="badge badge-soft-primary">Design</span>
-                                                    </div>
-                                                    <div class="flex-shrink-0">
-                                                        <div class="avatar-group">
-                                                            <a href="javascript: void(0);" class="avatar-group-item"
-                                                                data-bs-toggle="tooltip" data-bs-trigger="hover"
-                                                                data-bs-placement="top" title="Alexis">
-                                                                <img src="assets/images/users/avatar-4.jpg"
-                                                                    alt="" class="rounded-circle avatar-xxs">
-                                                            </a>
-                                                            <a href="javascript: void(0);" class="avatar-group-item"
-                                                                data-bs-toggle="tooltip" data-bs-trigger="hover"
-                                                                data-bs-placement="top" title="Thomas">
-                                                                <img src="assets/images/users/avatar-8.jpg"
-                                                                    alt="" class="rounded-circle avatar-xxs">
-                                                            </a>
-                                                            <a href="javascript: void(0);" class="avatar-group-item"
-                                                                data-bs-toggle="tooltip" data-bs-trigger="hover"
-                                                                data-bs-placement="top" title="Herbert">
-                                                                <img src="assets/images/users/avatar-2.jpg"
-                                                                    alt="" class="rounded-circle avatar-xxs">
-                                                            </a>
-                                                            <a href="javascript: void(0);" class="avatar-group-item"
-                                                                data-bs-toggle="tooltip" data-bs-trigger="hover"
-                                                                data-bs-placement="top" title="Anna">
-                                                                <img src="assets/images/users/avatar-1.jpg"
-                                                                    alt="" class="rounded-circle avatar-xxs">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-footer border-top-dashed">
-                                                <div class="d-flex">
-                                                    <div class="flex-grow-1">
-                                                        <span class="text-muted"><i
-                                                                class="ri-time-line align-bottom"></i> 05 Nov,
-                                                            2021</span>
-                                                    </div>
-                                                    <div class="flex-shrink-0">
-                                                        <ul class="link-inline mb-0">
-                                                            <li class="list-inline-item">
-                                                                <a href="javascript:void(0)" class="text-muted"><i
-                                                                        class="ri-eye-line align-bottom"></i> 12</a>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <a href="javascript:void(0)" class="text-muted"><i
-                                                                        class="ri-question-answer-line align-bottom"></i>
-                                                                    74</a>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <a href="javascript:void(0)" class="text-muted"><i
-                                                                        class="ri-attachment-2 align-bottom"></i>
-                                                                    37</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--end card-body-->
-                                            <div class="progress progress-sm">
-                                                <div class="progress-bar bg-primary" role="progressbar"
-                                                    style="width: 0%" aria-valuenow="0" aria-valuemin="0"
-                                                    aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                        <!--end card-->
-                                    </div>
-                                </div>
-                                <div class="my-3">
-                                    <button class="btn btn-soft-info w-100" data-bs-toggle="modal"
-                                        data-bs-target="#creatertaskModal">Add More</button>
-                                </div>
-                            </div>
+
                             <!--end tasks-list-->
                             <div class="tasks-list">
                                 <div class="d-flex mb-3">
                                     <div class="flex-grow-1">
-                                        <h6 class="fs-14 text-uppercase fw-semibold mb-0">Completed <small
+                                        <h6 class="fs-14 text-uppercase fw-semibold mb-0">IN REVIEWS <small
                                                 class="badge bg-success align-bottom ms-1 totaltask-badge">1</small>
                                         </h6>
                                     </div>
@@ -1207,18 +905,19 @@
                                 </div>
                             </div>
                             <!--end tasks-list-->
+                            
+                            <!--end tasks-list-->
                             <div class="tasks-list">
                                 <div class="d-flex mb-3">
                                     <div class="flex-grow-1">
-                                        <h6 class="fs-14 text-uppercase fw-semibold mb-0">new <small
+                                        <h6 class="fs-14 text-uppercase fw-semibold mb-0">Completed <small
                                                 class="badge bg-success align-bottom ms-1 totaltask-badge">1</small>
                                         </h6>
                                     </div>
                                     <div class="flex-shrink-0">
                                         <div class="dropdown card-header-dropdown">
                                             <a class="text-reset dropdown-btn" href="#"
-                                                data-bs-toggle="dropdown" aria-haspopup="true"
-                                                aria-expanded="false">
+                                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <span class="fw-medium text-muted fs-12">Priority<i
                                                         class="mdi mdi-chevron-down ms-1"></i></span>
                                             </a>
@@ -1230,18 +929,20 @@
                                     </div>
                                 </div>
                                 <div data-simplebar class="tasks-wrapper px-3 mx-n3">
-                                    <div id="new-task" class="tasks">
+                                    <div id="completed-task" class="tasks">
                                         <div class="card tasks-box">
                                             <div class="card-body">
                                                 <div class="d-flex mb-2">
-                                                    <a href="javascript:void(0)"
-                                                        class="text-muted fw-medium fs-14 flex-grow-1">#VL5287</a>
+                                                    <h6 class="fs-15 mb-0 flex-grow-1 text-truncate task-title"><a
+                                                            href="apps-tasks-details.html" class="d-block">Create a
+                                                            Blog Template
+                                                            UI</a></h6>
                                                     <div class="dropdown">
                                                         <a href="javascript:void(0);" class="text-muted"
-                                                            id="dropdownMenuLink2" data-bs-toggle="dropdown"
+                                                            id="dropdownMenuLink10" data-bs-toggle="dropdown"
                                                             aria-expanded="false"><i class="ri-more-fill"></i></a>
                                                         <ul class="dropdown-menu"
-                                                            aria-labelledby="dropdownMenuLink2">
+                                                            aria-labelledby="dropdownMenuLink10">
                                                             <li><a class="dropdown-item"
                                                                     href="apps-tasks-details.html"><i
                                                                         class="ri-eye-fill align-bottom me-2 text-muted"></i>
@@ -1257,30 +958,50 @@
                                                         </ul>
                                                     </div>
                                                 </div>
-                                                <h6 class="fs-15 text-truncate task-title"><a
-                                                        href="apps-tasks-details.html" class="d-block">Banner Design
-                                                        for FB & Twitter</a></h6>
-                                                <div class="tasks-img rounded"
-                                                    style="background-image: url('assets/images/small/img-4.jpg');">
+                                                <p class="text-muted">Landing page template with clean, minimal and
+                                                    modern design.</p>
+                                                <div class="mb-3">
+                                                    <div class="d-flex mb-1">
+                                                        <div class="flex-grow-1">
+                                                            <h6 class="text-muted mb-0"><span
+                                                                    class="text-info">35%</span> of 100%
+                                                            </h6>
+                                                        </div>
+                                                        <div class="flex-shrink-0">
+                                                            <span class="text-muted fw-medium">3 Day</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="progress rounded-3 progress-sm">
+                                                        <div class="progress-bar bg-danger" role="progressbar"
+                                                            style="width: 35%" aria-valuenow="35" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
                                                 </div>
                                                 <div class="d-flex align-items-center">
                                                     <div class="flex-grow-1">
-                                                        <span class="badge badge-soft-primary">UI/UX</span>
-                                                        <span class="badge badge-soft-primary">Graphic</span>
+                                                        <span class="badge badge-soft-primary">Design</span>
+                                                        <span class="badge badge-soft-primary">Website</span>
                                                     </div>
                                                     <div class="flex-shrink-0">
                                                         <div class="avatar-group">
                                                             <a href="javascript: void(0);" class="avatar-group-item"
                                                                 data-bs-toggle="tooltip" data-bs-trigger="hover"
-                                                                data-bs-placement="top" title="Frank">
-                                                                <img src="assets/images/users/avatar-3.jpg"
+                                                                data-bs-placement="top" title="Nancy">
+                                                                <img src="assets/images/users/avatar-8.jpg"
                                                                     alt=""
                                                                     class="rounded-circle avatar-xxs">
                                                             </a>
                                                             <a href="javascript: void(0);" class="avatar-group-item"
                                                                 data-bs-toggle="tooltip" data-bs-trigger="hover"
-                                                                data-bs-placement="top" title="Herbert">
-                                                                <img src="assets/images/users/avatar-2.jpg"
+                                                                data-bs-placement="top" title="Frank">
+                                                                <img src="assets/images/users/avatar-7.jpg"
+                                                                    alt=""
+                                                                    class="rounded-circle avatar-xxs">
+                                                            </a>
+                                                            <a href="javascript: void(0);" class="avatar-group-item"
+                                                                data-bs-toggle="tooltip" data-bs-trigger="hover"
+                                                                data-bs-placement="top" title="Tonya">
+                                                                <img src="assets/images/users/avatar-6.jpg"
                                                                     alt=""
                                                                     class="rounded-circle avatar-xxs">
                                                             </a>
@@ -1291,36 +1012,29 @@
                                             <div class="card-footer border-top-dashed">
                                                 <div class="d-flex">
                                                     <div class="flex-grow-1">
-                                                        <span class="text-muted"><i
-                                                                class="ri-time-line align-bottom"></i> 07 Jan,
-                                                            2022</span>
+                                                        <h6 class="text-muted mb-0">#VL2451</h6>
                                                     </div>
                                                     <div class="flex-shrink-0">
                                                         <ul class="link-inline mb-0">
                                                             <li class="list-inline-item">
                                                                 <a href="javascript:void(0)" class="text-muted"><i
-                                                                        class="ri-eye-line align-bottom"></i> 11</a>
+                                                                        class="ri-eye-line align-bottom"></i> 24</a>
                                                             </li>
                                                             <li class="list-inline-item">
                                                                 <a href="javascript:void(0)" class="text-muted"><i
                                                                         class="ri-question-answer-line align-bottom"></i>
-                                                                    26</a>
+                                                                    10</a>
                                                             </li>
                                                             <li class="list-inline-item">
                                                                 <a href="javascript:void(0)" class="text-muted"><i
                                                                         class="ri-attachment-2 align-bottom"></i>
-                                                                    30</a>
+                                                                    10</a>
                                                             </li>
                                                         </ul>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!--end card-body-->
-                                            <div class="progress progress-sm">
-                                                <div class="progress-bar bg-warning" role="progressbar"
-                                                    style="width: 55%" aria-valuenow="55" aria-valuemin="0"
-                                                    aria-valuemax="100"></div>
-                                            </div>
                                         </div>
                                         <!--end card-->
                                     </div>
