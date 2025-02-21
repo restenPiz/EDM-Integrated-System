@@ -208,31 +208,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="card-footer border-top-dashed">
-                                                <div class="d-flex">
-                                                    <div class="flex-grow-1">
-                                                        <h6 class="text-muted mb-0">#VL2436</h6>
-                                                    </div>
-                                                    <div class="flex-shrink-0">
-                                                        <ul class="link-inline mb-0">
-                                                            <li class="list-inline-item">
-                                                                <a href="javascript:void(0)" class="text-muted"><i
-                                                                        class="ri-eye-line align-bottom"></i> 04</a>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <a href="javascript:void(0)" class="text-muted"><i
-                                                                        class="ri-question-answer-line align-bottom"></i>
-                                                                    19</a>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <a href="javascript:void(0)" class="text-muted"><i
-                                                                        class="ri-attachment-2 align-bottom"></i>
-                                                                    02</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
                                             <!--end card-body-->
                                         </div>
                                         <!--end card-->
@@ -325,34 +300,6 @@
                                                                     alt="" class="rounded-circle avatar-xxs">
                                                             </a>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--end card-body-->
-                                            <div class="card-footer border-top-dashed">
-                                                <div class="d-flex">
-                                                    <div class="flex-grow-1">
-                                                        <span class="text-muted"><i
-                                                                class="ri-time-line align-bottom"></i> 07 Jan,
-                                                            2022</span>
-                                                    </div>
-                                                    <div class="flex-shrink-0">
-                                                        <ul class="link-inline mb-0">
-                                                            <li class="list-inline-item">
-                                                                <a href="javascript:void(0)" class="text-muted"><i
-                                                                        class="ri-eye-line align-bottom"></i> 13</a>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <a href="javascript:void(0)" class="text-muted"><i
-                                                                        class="ri-question-answer-line align-bottom"></i>
-                                                                    52</a>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <a href="javascript:void(0)" class="text-muted"><i
-                                                                        class="ri-attachment-2 align-bottom"></i>
-                                                                    17</a>
-                                                            </li>
-                                                        </ul>
                                                     </div>
                                                 </div>
                                             </div>
