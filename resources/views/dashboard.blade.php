@@ -1,4 +1,3 @@
-
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -16,7 +15,7 @@
         </div>
     </div>
 </x-app-layout>
-    
+
 <div class="page-content">
     <div class="container-fluid">
 
@@ -99,7 +98,24 @@
         </div>
         <!--end card-->
 
-        <div class="tasks-board mb-3" id="kanbanboard">
+        {{-- !Start with the foreach of board --}}
+
+        <!-- Base Example -->
+        <div class="accordion" id="default-accordion-example">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        First Board
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                    data-bs-parent="#default-accordion-example">
+                    <div class="accordion-body">
+                        
+                        {{--!Start with the task section--}}
+
+                        <div class="tasks-board mb-3" id="kanbanboard">
             <div class="tasks-list">
                 <div class="d-flex mb-3">
                     <div class="flex-grow-1">
@@ -1564,6 +1580,17 @@
             </div>
         </div>
         <!--end modal -->
+
+    </div>
+
+                        {{--!End of the task section--}}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- !End of foreach --}}
 
     </div>
     <!-- container-fluid -->
