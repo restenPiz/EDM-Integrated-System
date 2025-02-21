@@ -123,12 +123,10 @@
                                                             value="option1">
                                                     </div>
                                                 </th>
-                                                <td class="id" style="display:none;"><a href="javascript:void(0);"
-                                                        class="fw-medium link-primary">#{{$pt['id']}}</a></td>
                                                 <td class="customer_name">{{$pt['name']}}</td>
                                                 <td class="email">{{$pt['city']}}</td>
                                                 <td class="phone">{{$pt['neighborhood']}}</td>
-                                                <td class="date">{{$pt['created_at']}}</td>
+                                                <td class="date">{{ \Carbon\Carbon::parse($pt['created_at'])->format('d/m/Y H:i') }}</td>
                                                 <td>
                                                     <ul class="list-inline hstack gap-2 mb-0">
                                                         <li class="list-inline-item edit" data-bs-toggle="tooltip"
