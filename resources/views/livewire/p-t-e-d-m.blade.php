@@ -115,7 +115,8 @@
                                             </tr>
                                         </thead>
                                         <tbody class="list form-check-all">
-                                            <tr>
+                                            @foreach ($pts as $pt)
+                                                <tr>
                                                 <th scope="row">
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="checkbox" name="chk_child"
@@ -123,11 +124,11 @@
                                                     </div>
                                                 </th>
                                                 <td class="id" style="display:none;"><a href="javascript:void(0);"
-                                                        class="fw-medium link-primary">#VZ2101</a></td>
-                                                <td class="customer_name">Mary Cousar</td>
-                                                <td class="email">marycousar@velzon.com</td>
-                                                <td class="phone">580-464-4694</td>
-                                                <td class="date">06 Apr, 2021</td>
+                                                        class="fw-medium link-primary">#{{$pt['id']}}</a></td>
+                                                <td class="customer_name">{{$pt['name']}}</td>
+                                                <td class="email">{{$pt['city']}}</td>
+                                                <td class="phone">{{$pt['neighborhood']}}</td>
+                                                <td class="date">{{$pt['created_at']}}</td>
                                                 <td>
                                                     <ul class="list-inline hstack gap-2 mb-0">
                                                         <li class="list-inline-item edit" data-bs-toggle="tooltip"
@@ -149,6 +150,7 @@
                                                     </ul>
                                                 </td>
                                             </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                     <div class="noresult" style="display: none">

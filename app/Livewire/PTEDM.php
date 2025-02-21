@@ -7,6 +7,7 @@ use Livewire\Component;
 
 class PTEDM extends Component
 {
+    public $pts = [];
     public function render()
     {
         return view('livewire.p-t-e-d-m');
@@ -16,7 +17,7 @@ class PTEDM extends Component
         $response = Http::get(env('http://127.0.0.1:8000/api') . '/pts');
 
         if ($response->successful()) {
-            $this->occurrences = $response->json();
+            $this->pts = $response->json();
         }
     }
 }
