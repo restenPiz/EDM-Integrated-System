@@ -41,13 +41,48 @@
                                 </div>
                             </div>
                         </div>
+                       @if (session()->has('success'))
+                            <div id="alert-box" class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+
+                        @if (session()->has('error'))
+                            <div id="alert-box" class="alert alert-danger">
+                                {{ session('error') }}
+                            </div>
+                        @endif
+
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function () {
+                                setTimeout(() => {
+                                    let alertBox = document.getElementById('alert-box');
+                                    if (alertBox) {
+                                        alertBox.remove(); // Remove completamente o alerta da DOM
+                                    }
+                                }, 5000);
+                            });
+
+                            document.addEventListener("livewire:load", () => {
+                                Livewire.hook('message.processed', () => {
+                                    setTimeout(() => {
+                                        let alertBox = document.getElementById('alert-box');
+                                        if (alertBox) {
+                                            alertBox.remove();
+                                        }
+                                    }, 5000);
+                                });
+                            });
+                        </script>
+
                         <div class="card-body border-bottom-dashed border-bottom">
-                            <form>
+                            <form wire:submit="save" method="post">
                                 <div class="row g-3">
                                     <div class="col-xl-4">
                                         <div class="search-box">
                                             <input type="text" class="form-control"  wire:model="name"
                                                 placeholder="Write the name or code of that PT - EDM">
+                                            @error('name') <span class="text-danger">{{ $message }}</span> @enderror
                                         </div>
                                     </div>
                                     <!--end col-->
@@ -70,6 +105,7 @@
                                                             <option value="Cabo_Delgado">Cabo Delgado</option>
                                                             <option value="Niassa">Niassa</option>
                                                         </select>
+                                                        @error('city') <span class="text-danger">{{ $message }}</span> @enderror
                                                     </div>
                                                 </div>
 
@@ -79,16 +115,17 @@
                                                     <select class="form-control" data-plugin="choices" data-choices
                                                         data-choices-search-false  wire:model="neighborhood"
                                                         id="idStatus">
-                                                        <option value="Mozambique" selected>Mozambique</option>
+                                                        <option value="">Selecione uma cidade ou província</option>
+                                                        <option value="Mozambique">Mozambique</option>
                                                     </select>
+                                                    @error('neighborhood') <span class="text-danger">{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                             <!--end col-->
 
                                             <div class="col-sm-4">
                                                 <div>
-                                                    <button type="button" class="btn btn-success w-100"
-                                                        onclick="SearchData();"><i
+                                                    <button type="submit" class="btn btn-success w-100"><i
                                                 class="ri-add-line align-bottom me-1"></i>Add PT-EDM</button>
                                                 </div>
                                             </div>
