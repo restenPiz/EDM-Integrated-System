@@ -7,8 +7,11 @@ use Livewire\Component;
 
 class PTEDM extends Component
 {
+    //*Defining the attributes what im using here in this object
     public $pts = [];
     public $city, $name, $neighborhood, $deleteId, $id;
+
+    //*This dispatch is created to hide the alerts when the conditions returns some session
     public function mount()
     {
         $this->fetchPts();
@@ -36,7 +39,6 @@ class PTEDM extends Component
         if ($response->successful()) {
             session()->flash('success', 'PT-EDM added with success!');
             $this->reset(['name', 'city', 'neighborhood']);
-            //*This dispatch is created to hide the alerts when the conditions returns some session
             $this->dispatch('hide-alerts');
             $this->fetchPts();
         } else {
