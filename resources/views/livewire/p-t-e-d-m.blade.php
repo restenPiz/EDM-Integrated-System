@@ -46,7 +46,7 @@
                                 <div class="row g-3">
                                     <div class="col-xl-4">
                                         <div class="search-box">
-                                            <input type="text" class="form-control"
+                                            <input type="text" class="form-control"  wire:model="name"
                                                 placeholder="Write the name or code of that PT - EDM">
                                         </div>
                                     </div>
@@ -56,7 +56,7 @@
                                             <div class="col-sm-4">
                                                     <div>
                                                         <select class="form-control" data-plugin="choices" data-choices
-                                                            data-choices-search-true name="province_city" id="province_city">
+                                                            data-choices-search-true  wire:model="city" id="province_city">
                                                             <option value="">Selecione uma cidade ou província</option>
                                                             <option value="Maputo">Maputo (Cidade)</option>
                                                             <option value="Maputo_Provincia">Maputo (Província)</option>
@@ -77,7 +77,7 @@
                                             <div class="col-sm-4">
                                                 <div>
                                                     <select class="form-control" data-plugin="choices" data-choices
-                                                        data-choices-search-false name="choices-single-default"
+                                                        data-choices-search-false  wire:model="neighborhood"
                                                         id="idStatus">
                                                         <option value="Mozambique" selected>Mozambique</option>
                                                     </select>
