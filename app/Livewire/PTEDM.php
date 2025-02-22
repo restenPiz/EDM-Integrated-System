@@ -38,7 +38,7 @@ class PTEDM extends Component
     }
     public function update($id)
     {
-        $response = Http::post(env('API_URL') . "/deletePts/{$id}", [
+        $response = Http::post(env('API_URL') . "/updatePts/{$id}", [
             'name' => $this->name,
             'city' => $this->city,
             'neighborhood' => $this->neighborhood,

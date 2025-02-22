@@ -201,14 +201,14 @@
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                                 aria-label="Close" id="close-modal"></button>
                                                         </div>
-                                                        <form class="tablelist-form" autocomplete="off" wire:submit="update" method="post">
+                                                        <form class="tablelist-form" wire:submit="update" method="post">
                                                             <div class="modal-body">
                                                                 <input type="hidden" id="id-field" wire:model="id" value="{{$pt['id']}}" />
 
                                                                 <div class="mb-3">
                                                                     <label for="customername-field" class="form-label">PT Name / Code</label>
                                                                     <input type="text" id="customername-field" wire:model="name"
-                                                                        class="form-control" placeholder="Please enter with the PT name or code" value="{{$pt['name']}}" required />
+                                                                        class="form-control" value="{{$pt['name']}}" required />
                                                                     <div class="invalid-feedback">Please enter with a PT name or Code.</div>
                                                                 </div>
 
