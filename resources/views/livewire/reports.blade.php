@@ -153,7 +153,7 @@
                                 </div>
                             </div>
 
-                            <!-- Modal -->
+                            <!-- Modal Delete-->
                             <div class="modal fade flip" id="deleteOrder" tabindex="-1"
                                 aria-labelledby="deleteOrderLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
