@@ -54,27 +54,32 @@
                                     <div class="col-xl-8">
                                         <div class="row g-3">
                                             <div class="col-sm-4">
-                                                <div>
-                                                    <select class="form-control" data-plugin="choices" data-choices
-                                                        data-choices-search-false name="choices-single-default"
-                                                        id="idStatus">
-                                                        <option value="">Status</option>
-                                                        <option value="all" selected>All</option>
-                                                        <option value="Active">Active</option>
-                                                        <option value="Block">Block</option>
-                                                    </select>
+                                                    <div>
+                                                        <select class="form-control" data-plugin="choices" data-choices
+                                                            data-choices-search-true name="province_city" id="province_city">
+                                                            <option value="">Selecione uma cidade ou província</option>
+                                                            <option value="Maputo">Maputo (Cidade)</option>
+                                                            <option value="Maputo_Provincia">Maputo (Província)</option>
+                                                            <option value="Gaza">Gaza</option>
+                                                            <option value="Inhambane">Inhambane</option>
+                                                            <option value="Sofala">Sofala</option>
+                                                            <option value="Manica">Manica</option>
+                                                            <option value="Tete">Tete</option>
+                                                            <option value="Zambezia">Zambézia</option>
+                                                            <option value="Nampula">Nampula</option>
+                                                            <option value="Cabo_Delgado">Cabo Delgado</option>
+                                                            <option value="Niassa">Niassa</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                            </div>
+
                                             <!--end col-->
                                             <div class="col-sm-4">
                                                 <div>
                                                     <select class="form-control" data-plugin="choices" data-choices
                                                         data-choices-search-false name="choices-single-default"
                                                         id="idStatus">
-                                                        <option value="">Status</option>
-                                                        <option value="all" selected>All</option>
-                                                        <option value="Active">Active</option>
-                                                        <option value="Block">Block</option>
+                                                        <option value="Mozambique" selected>Mozambique</option>
                                                     </select>
                                                 </div>
                                             </div>
