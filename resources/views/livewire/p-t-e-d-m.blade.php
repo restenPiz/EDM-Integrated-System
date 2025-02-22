@@ -201,20 +201,20 @@
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                                 aria-label="Close" id="close-modal"></button>
                                                         </div>
-                                                        <form class="tablelist-form" autocomplete="off">
+                                                        <form class="tablelist-form" autocomplete="off" wire:submit="update" method="post">
                                                             <div class="modal-body">
-                                                                <input type="hidden" id="id-field" />
+                                                                <input type="hidden" id="id-field" wire:model="id" value="{{$pt['id']}}" />
 
                                                                 <div class="mb-3">
                                                                     <label for="customername-field" class="form-label">PT Name / Code</label>
-                                                                    <input type="text" id="customername-field"
+                                                                    <input type="text" id="customername-field" wire:model="name"
                                                                         class="form-control" placeholder="Please enter with the PT name or code" value="{{$pt['name']}}" required />
                                                                     <div class="invalid-feedback">Please enter with a PT name or Code.</div>
                                                                 </div>
 
                                                                 <div>
                                                                     <label for="status-field" class="form-label">City or Province</label>
-                                                                    <select class="form-control" data-choices data-choices-search-false
+                                                                    <select class="form-control" data-choices data-choices-search-false wire:model="city"
                                                                         name="status-field" id="status-field" required>
                                                                         <option value="{{$pt['city']}}">{{$pt['city']}}</option>
                                                                         <option value="Maputo">Maputo (Cidade)</option>
@@ -233,7 +233,7 @@
 
                                                                 <div>
                                                                     <label for="status-field" class="form-label">Country</label>
-                                                                    <select class="form-control" data-choices data-choices-search-false
+                                                                    <select class="form-control" data-choices data-choices-search-false wire:model="neighborhood"
                                                                         name="status-field" id="status-field" required>
                                                                         <option value="{{$pt['neighborhood']}}">{{$pt['neighborhood']}}</option>
                                                                         <option value="Mozambique">Mozambique</option>

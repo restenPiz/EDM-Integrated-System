@@ -36,6 +36,21 @@ class PTEDM extends Component
             session()->flash('error', 'Failed to add PT-EDM!');
         }
     }
+    public function update($id)
+    {
+        $response = Http::post(env('API_URL') . "/deletePts/{$id}", [
+            'name' => $this->name,
+            'city' => $this->city,
+            'neighborhood' => $this->neighborhood,
+        ]);
+
+        if ($response->successful()) {
+            session()->flash('success', 'PT-EDM updated with success!');
+            $this->reset(['name', 'city', 'neighborhood']);
+        } else {
+            session()->flash('error', 'Failed to update PT-EDM!');
+        }
+    }
     public function delete($id)
     {
         $response = Http::post(env('API_URL') . "/deletePts/{$id}");
