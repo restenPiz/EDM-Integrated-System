@@ -36,9 +36,12 @@ class PTEDM extends Component
         if ($response->successful()) {
             session()->flash('success', 'PT-EDM added with success!');
             $this->reset(['name', 'city', 'neighborhood']);
+            //*This dispatch is created to hide the alerts when the conditions returns some session
+            $this->dispatch('hide-alerts');
             $this->fetchPts();
         } else {
             session()->flash('error', 'Failed to add PT-EDM!');
+            $this->dispatch('hide-alerts');
         }
     }
     public function update($id)
@@ -52,9 +55,11 @@ class PTEDM extends Component
         if ($response->successful()) {
             session()->flash('success', 'PT-EDM updated with success!');
             $this->reset(['name', 'city', 'neighborhood']);
+            $this->dispatch('hide-alerts');
             $this->fetchPts();
         } else {
             session()->flash('error', 'Failed to update PT-EDM!');
+            $this->dispatch('hide-alerts');
         }
     }
     public function delete($id)
@@ -63,9 +68,11 @@ class PTEDM extends Component
 
         if ($response->successful()) {
             session()->flash('success', 'PT-EDM deleted successfully!');
+            $this->dispatch('hide-alerts');
             $this->fetchPts();
         } else {
             session()->flash('error', 'Failed to delete PT-EDM!');
+            $this->dispatch('hide-alerts');
         }
     }
 }

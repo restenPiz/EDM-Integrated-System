@@ -54,24 +54,15 @@
                         @endif
 
                         <script>
-                            document.addEventListener('DOMContentLoaded', function () {
+                            document.addEventListener('hide-alerts', () => {
                                 setTimeout(() => {
-                                    let alertBox = document.getElementById('alert-box');
-                                    if (alertBox) {
-                                        alertBox.remove(); // Remove completamente o alerta da DOM
-                                    }
+                                    let alerts = document.querySelectorAll('.alert');
+                                    alerts.forEach(alert => {
+                                        alert.style.transition = "opacity 0.5s";
+                                        alert.style.opacity = "0";
+                                        setTimeout(() => alert.remove(), 500); // Remove o alerta da DOM
+                                    });
                                 }, 5000);
-                            });
-
-                            document.addEventListener("livewire:load", () => {
-                                Livewire.hook('message.processed', () => {
-                                    setTimeout(() => {
-                                        let alertBox = document.getElementById('alert-box');
-                                        if (alertBox) {
-                                            alertBox.remove();
-                                        }
-                                    }, 5000);
-                                });
                             });
                         </script>
 
