@@ -201,14 +201,14 @@
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                                 aria-label="Close" id="close-modal"></button>
                                                         </div>
-                                                        <form class="tablelist-form" wire:submit="update" method="post">
+                                                        <form class="tablelist-form" wire:submit="update({{ $pt['id'] }})" method="post">
                                                             <div class="modal-body">
                                                                 <input type="hidden" id="id-field" wire:model="id" value="{{$pt['id']}}" />
 
                                                                 <div class="mb-3">
                                                                     <label for="customername-field" class="form-label">PT Name / Code</label>
-                                                                    <input type="text" id="customername-field" wire:model="name"
-                                                                        class="form-control" value="{{$pt['name']}}" required />
+                                                                    <input type="text" id="customername-field" 
+                                                                        class="form-control" value="{{$pt['name']}}"  wire:model="name" required />
                                                                     <div class="invalid-feedback">Please enter with a PT name or Code.</div>
                                                                 </div>
 
@@ -244,7 +244,7 @@
                                                                 <div class="hstack gap-2 justify-content-end">
                                                                     <button type="button" class="btn btn-light"
                                                                         data-bs-dismiss="modal">Close</button>
-                                                                    <button type="submit" class="btn btn-success" id="add-btn">Update PT</button>
+                                                                    <button type="submit" class="btn btn-success" id="add-btn" data-bs-dismiss="modal">Update PT</button>
                                                                     <!-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> -->
                                                                 </div>
                                                             </div>

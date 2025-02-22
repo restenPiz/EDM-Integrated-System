@@ -13,6 +13,10 @@ class PTEDM extends Component
     {
         $this->fetchPts();
     }
+    public function render()
+    {
+        return view('livewire.p-t-e-d-m');
+    }
     public function fetchPts()
     {
         $response = Http::get(env('API_URL') . '/pts');
@@ -32,6 +36,7 @@ class PTEDM extends Component
         if ($response->successful()) {
             session()->flash('success', 'PT-EDM added with success!');
             $this->reset(['name', 'city', 'neighborhood']);
+            $this->fetchPts();
         } else {
             session()->flash('error', 'Failed to add PT-EDM!');
         }
@@ -47,6 +52,7 @@ class PTEDM extends Component
         if ($response->successful()) {
             session()->flash('success', 'PT-EDM updated with success!');
             $this->reset(['name', 'city', 'neighborhood']);
+            $this->fetchPts();
         } else {
             session()->flash('error', 'Failed to update PT-EDM!');
         }
@@ -61,10 +67,5 @@ class PTEDM extends Component
         } else {
             session()->flash('error', 'Failed to delete PT-EDM!');
         }
-    }
-
-    public function render()
-    {
-        return view('livewire.p-t-e-d-m');
     }
 }
