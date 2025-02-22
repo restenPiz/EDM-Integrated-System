@@ -174,7 +174,7 @@
                                                         <li class="list-inline-item edit" data-bs-toggle="tooltip"
                                                             data-bs-trigger="hover" data-bs-placement="top"
                                                             title="Edit">
-                                                            <a href="#showModal" data-bs-toggle="modal"
+                                                            <a href="#showModal{{$pt['id']}}" data-bs-toggle="modal"
                                                                 class="text-primary d-inline-block edit-item-btn">
                                                                 <i class="ri-pencil-fill fs-16"></i>
                                                             </a>
@@ -193,11 +193,11 @@
 
                                             {{--*Modal Edit--}}
 
-                                            <div class="modal fade" id="showModal" tabindex="-1" aria-hidden="true">
+                                            <div class="modal fade" id="showModal{{$pt['id']}}" tabindex="-1" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered">
                                                     <div class="modal-content">
                                                         <div class="modal-header bg-light p-3">
-                                                            <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                                            <h5 class="modal-title" id="exampleModalLabel">Update PT - EDM</h5>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                                 aria-label="Close" id="close-modal"></button>
                                                         </div>
@@ -205,49 +205,38 @@
                                                             <div class="modal-body">
                                                                 <input type="hidden" id="id-field" />
 
-                                                                <div class="mb-3" id="modal-id" style="display: none;">
-                                                                    <label for="id-field1" class="form-label">ID</label>
-                                                                    <input type="text" id="id-field1" class="form-control"
-                                                                        placeholder="ID" readonly />
-                                                                </div>
-
                                                                 <div class="mb-3">
-                                                                    <label for="customername-field" class="form-label">Customer
-                                                                        Name</label>
+                                                                    <label for="customername-field" class="form-label">PT Name / Code</label>
                                                                     <input type="text" id="customername-field"
-                                                                        class="form-control" placeholder="Enter name" required />
-                                                                    <div class="invalid-feedback">Please enter a customer name.</div>
-                                                                </div>
-
-                                                                <div class="mb-3">
-                                                                    <label for="email-field" class="form-label">Email</label>
-                                                                    <input type="email" id="email-field" class="form-control"
-                                                                        placeholder="Enter email" required />
-                                                                    <div class="invalid-feedback">Please enter an email.</div>
-                                                                </div>
-
-                                                                <div class="mb-3">
-                                                                    <label for="phone-field" class="form-label">Phone</label>
-                                                                    <input type="text" id="phone-field" class="form-control"
-                                                                        placeholder="Enter phone no." required />
-                                                                    <div class="invalid-feedback">Please enter a phone.</div>
-                                                                </div>
-
-                                                                <div class="mb-3">
-                                                                    <label for="date-field" class="form-label">Joining Date</label>
-                                                                    <input type="date" id="date-field" class="form-control"
-                                                                        data-provider="flatpickr" data-date-format="d M, Y" required
-                                                                        placeholder="Select date" />
-                                                                    <div class="invalid-feedback">Please select a date.</div>
+                                                                        class="form-control" placeholder="Please enter with the PT name or code" value="{{$pt['name']}}" required />
+                                                                    <div class="invalid-feedback">Please enter with a PT name or Code.</div>
                                                                 </div>
 
                                                                 <div>
-                                                                    <label for="status-field" class="form-label">Status</label>
+                                                                    <label for="status-field" class="form-label">City or Province</label>
                                                                     <select class="form-control" data-choices data-choices-search-false
                                                                         name="status-field" id="status-field" required>
-                                                                        <option value="">Status</option>
-                                                                        <option value="Active">Active</option>
-                                                                        <option value="Block">Block</option>
+                                                                        <option value="{{$pt['city']}}">{{$pt['city']}}</option>
+                                                                        <option value="Maputo">Maputo (Cidade)</option>
+                                                                        <option value="Maputo_Provincia">Maputo (Província)</option>
+                                                                        <option value="Gaza">Gaza</option>
+                                                                        <option value="Inhambane">Inhambane</option>
+                                                                        <option value="Sofala">Sofala</option>
+                                                                        <option value="Manica">Manica</option>
+                                                                        <option value="Tete">Tete</option>
+                                                                        <option value="Zambezia">Zambézia</option>
+                                                                        <option value="Nampula">Nampula</option>
+                                                                        <option value="Cabo_Delgado">Cabo Delgado</option>
+                                                                        <option value="Niassa">Niassa</option>
+                                                                    </select>
+                                                                </div>
+
+                                                                <div>
+                                                                    <label for="status-field" class="form-label">Country</label>
+                                                                    <select class="form-control" data-choices data-choices-search-false
+                                                                        name="status-field" id="status-field" required>
+                                                                        <option value="{{$pt['neighborhood']}}">{{$pt['neighborhood']}}</option>
+                                                                        <option value="Mozambique">Mozambique</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -255,8 +244,7 @@
                                                                 <div class="hstack gap-2 justify-content-end">
                                                                     <button type="button" class="btn btn-light"
                                                                         data-bs-dismiss="modal">Close</button>
-                                                                    <button type="submit" class="btn btn-success" id="add-btn">Add
-                                                                        Customer</button>
+                                                                    <button type="submit" class="btn btn-success" id="add-btn">Update PT</button>
                                                                     <!-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> -->
                                                                 </div>
                                                             </div>
