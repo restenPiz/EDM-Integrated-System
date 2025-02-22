@@ -38,9 +38,7 @@ class PTEDM extends Component
     }
     public function delete($id)
     {
-        $response = Http::post(env('API_URL') . '/deletePts', [
-            'id' => $id,
-        ]);
+        $response = Http::post(env('API_URL') . "/deletePts/{$id}");
 
         if ($response->successful()) {
             session()->flash('success', 'PT-EDM deleted successfully!');
