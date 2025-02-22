@@ -165,7 +165,7 @@
                                                         <li class="list-inline-item edit" data-bs-toggle="tooltip"
                                                             data-bs-trigger="hover" data-bs-placement="top"
                                                             title="Edit">
-                                                            <a href="#showModal{{$pt['id']}}" data-bs-toggle="modal"
+                                                            <a href="#showModal{{$pt['id']}}" wire:click="edit({{ $pt['id'] }})" data-bs-toggle="modal"
                                                                 class="text-primary d-inline-block edit-item-btn">
                                                                 <i class="ri-pencil-fill fs-16"></i>
                                                             </a>
@@ -198,15 +198,14 @@
 
                                                                 <div class="mb-3">
                                                                     <label for="customername-field" class="form-label">PT Name / Code</label>
-                                                                    <input type="text" id="customername-field" placeholder="{{$pt['name']}}"
-                                                                        class="form-control" value="{{$pt['name']}}"  wire:model="name" required />
+                                                                    <input type="text" class="form-control" wire:model="name" required />
                                                                     <div class="invalid-feedback">Please enter with a PT name or Code.</div>
                                                                 </div>
 
                                                                 <div>
                                                                     <label for="status-field" class="form-label">City or Province</label>
                                                                     <select class="form-control" data-choices data-choices-search-false wire:model="city"
-                                                                        name="status-field" id="status-field" required>
+                                                                        id="status-field" required>
                                                                         <option value="{{$pt['city']}}">{{$pt['city']}}</option>
                                                                         <option value="Maputo">Maputo (Cidade)</option>
                                                                         <option value="Maputo_Provincia">Maputo (Província)</option>

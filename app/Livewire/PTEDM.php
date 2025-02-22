@@ -9,7 +9,7 @@ class PTEDM extends Component
 {
     //*Defining the attributes what im using here in this object
     public $pts = [];
-    public $city, $name, $neighborhood, $deleteId, $id;
+    public $city, $pt, $name, $neighborhood, $deleteId, $id;
 
     //*This dispatch is created to hide the alerts when the conditions returns some session
     public function mount()
@@ -44,6 +44,17 @@ class PTEDM extends Component
         } else {
             session()->flash('error', 'Failed to add PT-EDM!');
             $this->dispatch('hide-alerts');
+        }
+    }
+    public function edit($id)
+    {
+        $pt = collect($this->pts)->firstWhere('id', $id);
+
+        if ($pt) {
+            $this->id = $pt['id'];
+            $this->name = $pt['name'];
+            $this->city = $pt['city'];
+            $this->neighborhood = $pt['neighborhood'];
         }
     }
     public function update($id)
