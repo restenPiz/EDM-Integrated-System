@@ -207,7 +207,7 @@
 
                                                                 <div class="mb-3">
                                                                     <label for="customername-field" class="form-label">PT Name / Code</label>
-                                                                    <input type="text" id="customername-field" 
+                                                                    <input type="text" id="customername-field" placeholder="{{$pt['name']}}"
                                                                         class="form-control" value="{{$pt['name']}}"  wire:model="name" required />
                                                                     <div class="invalid-feedback">Please enter with a PT name or Code.</div>
                                                                 </div>
