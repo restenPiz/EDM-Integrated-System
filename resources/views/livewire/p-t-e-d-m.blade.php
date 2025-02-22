@@ -183,7 +183,7 @@
                                                             data-bs-trigger="hover" data-bs-placement="top"
                                                             title="Remove">
                                                             <a class="text-danger d-inline-block remove-item-btn"
-                                                                data-bs-toggle="modal" href="#deleteRecordModal">
+                                                                data-bs-toggle="modal" href="#deleteRecordModal{{$pt['id']}}">
                                                                 <i class="ri-delete-bin-5-fill fs-16"></i>
                                                             </a>
                                                         </li>
@@ -192,12 +192,12 @@
                                             </tr>
 
                                             <!-- Modal -->
-                                            <div class="modal fade zoomIn" id="deleteRecordModal" tabindex="-1" aria-hidden="true">
+                                            <div class="modal fade zoomIn" id="deleteRecordModal{{$pt['id']}}" tabindex="-1" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <button type="button" class="btn-close" id="deleteRecord-close"
-                                                                data-bs-dismiss="modal" aria-label="Close" id="btn-close"></button>
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
                                                             <div class="mt-2 text-center">
@@ -205,16 +205,18 @@
                                                                     colors="primary:#f7b84b,secondary:#f06548"
                                                                     style="width:100px;height:100px"></lord-icon>
                                                                 <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
-                                                                    <h4>Are you sure ?</h4>
-                                                                    <p class="text-muted mx-4 mb-0">Are you sure you want to remove
-                                                                        this record ?</p>
+                                                                    <h4>Are you sure?</h4>
+                                                                    <p class="text-muted mx-4 mb-0">Are you sure you want to remove this record?</p>
                                                                 </div>
                                                             </div>
                                                             <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
                                                                 <button type="button" class="btn w-sm btn-light"
                                                                     data-bs-dismiss="modal">Close</button>
                                                                 <button type="button" class="btn w-sm btn-danger"
-                                                                    id="delete-record">Yes, Delete It!</button>
+                                                                    wire:click="delete({{ $pt['id'] }})"
+                                                                    data-bs-dismiss="modal">
+                                                                    Yes, Delete It!
+                                                                </button>
                                                             </div>
                                                         </div>
                                                     </div>

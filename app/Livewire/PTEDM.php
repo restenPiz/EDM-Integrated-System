@@ -8,7 +8,7 @@ use Livewire\Component;
 class PTEDM extends Component
 {
     public $pts = [];
-    public $city, $name, $neighborhood, $deleteId;
+    public $city, $name, $neighborhood, $deleteId, $id;
     public function mount()
     {
         $this->fetchPts();
@@ -53,28 +53,5 @@ class PTEDM extends Component
     public function render()
     {
         return view('livewire.p-t-e-d-m');
-    }
-
-    public function setDeleteId($id)
-    {
-        $this->deleteId = $id;
-    }
-
-    public function deleteConfirmed()
-    {
-        if ($this->deleteId) {
-            $response = Http::post(env('API_URL') . '/deletePts', [
-                'id' => $this->deleteId,
-            ]);
-
-            if ($response->successful()) {
-                session()->flash('success', 'PT-EDM deleted successfully!');
-                $this->fetchPts(); // Atualiza a lista
-            } else {
-                session()->flash('error', 'Failed to delete PT-EDM!');
-            }
-
-            $this->deleteId = null; // Resetar ID após exclusão
-        }
     }
 }
