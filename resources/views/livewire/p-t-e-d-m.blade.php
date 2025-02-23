@@ -165,7 +165,8 @@
                                                         <li class="list-inline-item edit" data-bs-toggle="tooltip"
                                                             data-bs-trigger="hover" data-bs-placement="top"
                                                             title="Edit">
-                                                            <a href="#showModal{{$pt['id']}}" wire:click="edit({{ $pt['id'] }})" data-bs-toggle="modal"
+                                                            <a href="#showModal{{$pt['id']}}"  wire:click="$dispatch('edit', { id: {{ $pt['id'] }} })" 
+                                                             data-bs-toggle="modal"
                                                                 class="text-primary d-inline-block edit-item-btn">
                                                                 <i class="ri-pencil-fill fs-16"></i>
                                                             </a>
@@ -206,7 +207,7 @@
                                                                     <label for="status-field" class="form-label">City or Province</label>
                                                                     <select class="form-control" data-choices data-choices-search-false wire:model="city"
                                                                         id="status-field" required>
-                                                                        <option value="{{$pt['city']}}">{{$pt['city']}}</option>
+                                                                        <option value="">Select a city</option>
                                                                         <option value="Maputo">Maputo (Cidade)</option>
                                                                         <option value="Maputo_Provincia">Maputo (Província)</option>
                                                                         <option value="Gaza">Gaza</option>
@@ -223,9 +224,9 @@
 
                                                                 <div>
                                                                     <label for="status-field" class="form-label">Country</label>
-                                                                    <select class="form-control" data-choices data-choices-search-false wire:model="neighborhood"
-                                                                        name="status-field" id="status-field" required>
-                                                                        <option value="{{$pt['neighborhood']}}">{{$pt['neighborhood']}}</option>
+                                                                    <select class="form-control" data-choices data-choices-search-false
+                                                                     wire:model="neighborhood" id="status-field" required>
+                                                                        <option value="">Select a Country</option>
                                                                         <option value="Mozambique">Mozambique</option>
                                                                     </select>
                                                                 </div>
