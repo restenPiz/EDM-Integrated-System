@@ -46,7 +46,7 @@
                             <img src="assets/edm.png" alt="" height="100">
                         </span>
                         <span class="logo-lg">
-                            <img src="assets/ee.png" alt="" height="70">
+                            <img src="assets/ee.png" alt="" height="55">
                         </span>
                     </a>
 
