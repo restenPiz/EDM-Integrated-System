@@ -203,27 +203,33 @@
                                                 });
                                             </script>
 
-                                            <div wire:ignore class="modal fade" id="shwModal" tabindex="-1" aria-hidden="true">
+                                            <div wire:ignore.self class="modal fade" id="shwModal" tabindex="-1" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered">
                                                     <div class="modal-content">
                                                         <div class="modal-header bg-light p-3">
                                                             <h5 class="modal-title" id="exampleModalLabel">Update PT - EDM</h5>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                                aria-label="Close" id="close-modal"   wire:click="$dispatch('close-edit-modal')"></button>
+                                                                aria-label="Close" id="close-modal" wire:click="$dispatch('close-edit-modal')">
+                                                            </button>
                                                         </div>
-                                                        <form class="tablelist-form" wire:submit="update({{ $pt['id'] }})" method="post">
+
+                                                        <form class="tablelist-form" wire:submit.prevent="update({{ $pt['id'] }})">
                                                             <div class="modal-body">
-                                                                <input type="hidden" id="id-field" wire:model="id" value="{{$pt['id']}}" />
+                                                                <input type="hidden" id="id-field" wire:model="id" value="{{ $pt['id'] }}" />
 
                                                                 <div class="mb-3">
                                                                     <label for="customername-field" class="form-label">PT Name / Code</label>
-                                                                    <input type="text" class="form-control" wire:model="edit_name" required />
-                                                                    <div class="invalid-feedback">Please enter with a PT name or Code.</div>
+                                                                    <input type="text" class="form-control @error('edit_name') is-invalid @enderror" 
+                                                                        wire:model="edit_name" required />
+                                                                    @error('edit_name')
+                                                                        <span class="text-danger">{{ $message }}</span>
+                                                                    @enderror
                                                                 </div>
 
-                                                                <div>
+                                                                <div class="mb-3">
                                                                     <label for="status-field" class="form-label">City or Province</label>
-                                                                    <select class="form-control" wire:model="edit_city" required>
+                                                                    <select class="form-control @error('edit_city') is-invalid @enderror" 
+                                                                            wire:model="edit_city" required>
                                                                         <option value="">Select a city</option>
                                                                         <option value="Maputo">Maputo (Cidade)</option>
                                                                         <option value="Maputo_Provincia">Maputo (Província)</option>
@@ -237,28 +243,40 @@
                                                                         <option value="Cabo_Delgado">Cabo Delgado</option>
                                                                         <option value="Niassa">Niassa</option>
                                                                     </select>
+                                                                    @error('edit_city')
+                                                                        <span class="text-danger">{{ $message }}</span>
+                                                                    @enderror
                                                                 </div>
 
-                                                                <div>
+                                                                <div class="mb-3">
                                                                     <label for="status-field" class="form-label">Country</label>
-                                                                    <select class="form-control" wire:model="edit_neighborhood" required>
+                                                                    <select class="form-control @error('edit_neighborhood') is-invalid @enderror" 
+                                                                            wire:model="edit_neighborhood" required>
                                                                         <option value="">Select a Country</option>
                                                                         <option value="Mozambique">Mozambique</option>
                                                                     </select>
+                                                                    @error('edit_neighborhood')
+                                                                        <span class="text-danger">{{ $message }}</span>
+                                                                    @enderror
                                                                 </div>
                                                             </div>
+
                                                             <div class="modal-footer">
                                                                 <div class="hstack gap-2 justify-content-end">
-                                                                    <button type="button" class="btn btn-light"
-                                                                        data-bs-dismiss="modal"   wire:click="$dispatch('close-edit-modal')">Close</button>
-                                                                    <button type="submit" class="btn btn-success" id="add-btn" data-bs-dismiss="modal">Update PT</button>
-                                                                    <!-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> -->
+                                                                    <button type="button" class="btn btn-light" data-bs-dismiss="modal" 
+                                                                            wire:click="$dispatch('close-edit-modal')">
+                                                                        Close
+                                                                    </button>
+                                                                    <button type="submit" class="btn btn-success" id="add-btn">
+                                                                        Update PT
+                                                                    </button>
                                                                 </div>
                                                             </div>
                                                         </form>
                                                     </div>
                                                 </div>
                                             </div>
+
                                             {{--*End Modal--}}
 
                                             <!-- Modal -->
