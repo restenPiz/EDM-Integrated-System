@@ -165,7 +165,7 @@
                                                         <li class="list-inline-item edit" data-bs-toggle="tooltip"
                                                             data-bs-trigger="hover" data-bs-placement="top"
                                                             title="Edit">
-                                                            <a href="#" wire:click="edit({{ $pt['id'] }})" data-bs-toggle="modal" data-bs-target="#editModal"
+                                                            <a href="#" wire:click="edit({{ $pt['id'] }})" data-bs-toggle="modal" data-bs-target="#showModal"
                                                                 class="text-primary d-inline-block edit-item-btn">
                                                                 <i class="ri-pencil-fill fs-16"></i>
                                                             </a>
@@ -184,7 +184,14 @@
 
                                             {{--*Modal Edit--}}
 
-                                            <div class="modal fade" id="showModal{{$pt['id']}}" tabindex="-1" aria-hidden="true">
+                                            <script>
+                                                window.addEventListener('showModal', event => {
+                                                    var myModal = new bootstrap.Modal(document.getElementById('showModal'));
+                                                    myModal.show();
+                                                });
+                                            </script>
+
+                                            <div class="modal fade" id="showModal" tabindex="-1" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered">
                                                     <div class="modal-content">
                                                         <div class="modal-header bg-light p-3">

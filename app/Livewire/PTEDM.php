@@ -74,6 +74,8 @@ class PTEDM extends Component
             $this->editId = $pt['id'];
             $this->editName = $pt['name'];
             $this->editCity = $pt['city'];
+
+            $this->dispatchBrowserEvent('showModal');
         }
     }
     public function delete($id)
