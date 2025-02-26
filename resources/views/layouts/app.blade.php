@@ -11,7 +11,7 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="shortcut icon" href="assets/icon.png">
 
     <!-- Dragula css -->
     <link rel="stylesheet" href="assets/libs/dragula/dragula.min.css" />
@@ -41,21 +41,21 @@
             <div class="d-flex">
                 <!-- LOGO -->
                 <div class="navbar-brand-box horizontal-logo">
-                    <a href="index.html" class="logo logo-dark">
+                    <a href="{{route('dashboard')}}" wire:navigate class="logo logo-dark">
                         <span class="logo-sm">
-                            <img src="assets/edm.png" alt="" height="100">
+                            <img src="../assets/edm.png" alt="" height="100">
                         </span>
                         <span class="logo-lg">
-                            <img src="assets/edm.png" alt="" height="73" width="120">
+                            <img src="assets/ee.png" alt="" height="70">
                         </span>
                     </a>
 
-                    <a href="index.html" class="logo logo-light">
+                    <a href="{{route('dashboard')}}" wire:navigate class="logo logo-light">
                         <span class="logo-sm">
-                            <img src="assets/edm.png" alt="" height="80">
+                            <img src="../assets/edm.png" alt="" height="80">
                         </span>
                         <span class="logo-lg">
-                            <img src="assets/edm.png" alt="" height="140">
+                            <img src="../assets/edm.png" alt="" height="140">
                         </span>
                     </a>
                 </div>
@@ -142,19 +142,19 @@
                 <!-- Dark Logo-->
                 <a href="index.html" class="logo logo-dark">
                     <span class="logo-sm">
-                        <img src="assets/edm.png" alt="" height="130">
+                        <img src="../assets/edm.png" alt="" height="130">
                     </span>
                     <span class="logo-lg">
-                        <img src="assets/edm.png" alt="" height="130">
+                        <img src="../assets/edm.png" alt="" height="130">
                     </span>
                 </a>
                 <!-- Light Logo-->
                 <a href="index.html" class="logo logo-light">
                     <span class="logo-sm">
-                        <img src="assets/edm.png" alt="" height="140">
+                        <img src="../assets/edm.png" alt="" height="140">
                     </span>
                     <span class="logo-lg">
-                        <img src="assets/edm.png" alt="" height="140">
+                        <img src="../assets/edm.png" alt="" height="140">
                     </span>
                 </a>
                 <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover" id="vertical-hover">
