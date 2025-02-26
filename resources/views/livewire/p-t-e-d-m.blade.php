@@ -165,8 +165,7 @@
                                                         <li class="list-inline-item edit" data-bs-toggle="tooltip"
                                                             data-bs-trigger="hover" data-bs-placement="top"
                                                             title="Edit">
-                                                            <a href="#showModal{{$pt['id']}}"  wire:click="$dispatch('edit', { id: {{ $pt['id'] }} })" 
-                                                             data-bs-toggle="modal"
+                                                            <a href="#" wire:click="edit({{ $pt['id'] }})" data-bs-toggle="modal" data-bs-target="#editModal"
                                                                 class="text-primary d-inline-block edit-item-btn">
                                                                 <i class="ri-pencil-fill fs-16"></i>
                                                             </a>

@@ -46,17 +46,6 @@ class PTEDM extends Component
             $this->dispatch('hide-alerts');
         }
     }
-    public function edit($id)
-    {
-        $pt = collect($this->pts)->firstWhere('id', $id);
-
-        if ($pt) {
-            $this->id = $pt['id'];
-            $this->name = $pt['name'];
-            $this->city = $pt['city'];
-            $this->neighborhood = $pt['neighborhood'];
-        }
-    }
     public function update($id)
     {
         $response = Http::post(env('API_URL') . "/updatePts/{$id}", [
@@ -73,6 +62,18 @@ class PTEDM extends Component
         } else {
             session()->flash('error', 'Failed to update PT-EDM!');
             $this->dispatch('hide-alerts');
+        }
+    }
+    public function edit($id)
+    {
+        $response = Http::get(env('API_URL') . "/showPts/{$id}");
+
+        if ($response->successful()) {
+            $pt = $response->json();
+
+            $this->editId = $pt['id'];
+            $this->editName = $pt['name'];
+            $this->editCity = $pt['city'];
         }
     }
     public function delete($id)
