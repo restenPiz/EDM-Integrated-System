@@ -185,7 +185,7 @@
                                             {{--*Modal Edit--}}
 
                                             <script>
-                                                window.addEventListener('show-edit-modal', event => {
+                                                window.addEventListener('showModal', event => {
                                                     var modal = new bootstrap.Modal(document.getElementById('showModal'));
                                                     modal.show();
                                                 });
