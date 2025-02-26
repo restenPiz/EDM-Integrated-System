@@ -41,7 +41,7 @@
                                 </div>
                             </div>
                         </div>
-                       @if (session()->has('success'))
+                        @if (session()->has('success'))
                             <div id="alert-box" class="alert alert-success">
                                 {{ session('success') }}
                             </div>
@@ -71,45 +71,54 @@
                                 <div class="row g-3">
                                     <div class="col-xl-4">
                                         <div class="search-box">
-                                            <input type="text" class="form-control"  wire:model="name"
+                                            <input type="text" class="form-control" wire:model="name"
                                                 placeholder="Write the name or code of that PT - EDM" required>
-                                            @error('name') <span class="text-danger">{{ $message }}</span> @enderror
+                                            @error('name')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                     </div>
                                     <!--end col-->
                                     <div class="col-xl-8">
                                         <div class="row g-3">
                                             <div class="col-sm-4">
-                                                    <div>
-                                                        <select class="form-control" data-plugin="choices" data-choices required
-                                                            data-choices-search-true  wire:model="city" id="province_city">
-                                                            <option value="">Selecione uma cidade ou província</option>
-                                                            <option value="Maputo">Maputo (Cidade)</option>
-                                                            <option value="Maputo_Provincia">Maputo (Província)</option>
-                                                            <option value="Gaza">Gaza</option>
-                                                            <option value="Inhambane">Inhambane</option>
-                                                            <option value="Sofala">Sofala</option>
-                                                            <option value="Manica">Manica</option>
-                                                            <option value="Tete">Tete</option>
-                                                            <option value="Zambezia">Zambézia</option>
-                                                            <option value="Nampula">Nampula</option>
-                                                            <option value="Cabo_Delgado">Cabo Delgado</option>
-                                                            <option value="Niassa">Niassa</option>
-                                                        </select>
-                                                        @error('city') <span class="text-danger">{{ $message }}</span> @enderror
-                                                    </div>
+                                                <div>
+                                                    <select class="form-control" data-plugin="choices" data-choices
+                                                        required data-choices-search-true wire:model="city"
+                                                        id="province_city">
+                                                        <option value="">Selecione uma cidade ou província
+                                                        </option>
+                                                        <option value="Maputo">Maputo (Cidade)</option>
+                                                        <option value="Maputo_Provincia">Maputo (Província)</option>
+                                                        <option value="Gaza">Gaza</option>
+                                                        <option value="Inhambane">Inhambane</option>
+                                                        <option value="Sofala">Sofala</option>
+                                                        <option value="Manica">Manica</option>
+                                                        <option value="Tete">Tete</option>
+                                                        <option value="Zambezia">Zambézia</option>
+                                                        <option value="Nampula">Nampula</option>
+                                                        <option value="Cabo_Delgado">Cabo Delgado</option>
+                                                        <option value="Niassa">Niassa</option>
+                                                    </select>
+                                                    @error('city')
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
                                                 </div>
+                                            </div>
 
                                             <!--end col-->
                                             <div class="col-sm-4">
                                                 <div>
                                                     <select class="form-control" data-plugin="choices" data-choices
-                                                        data-choices-search-false  wire:model="neighborhood"
+                                                        data-choices-search-false wire:model="neighborhood"
                                                         id="idStatus" required>
-                                                        <option value="">Selecione uma cidade ou província</option>
+                                                        <option value="">Selecione uma cidade ou província
+                                                        </option>
                                                         <option value="Mozambique">Mozambique</option>
                                                     </select>
-                                                    @error('neighborhood') <span class="text-danger">{{ $message }}</span> @enderror
+                                                    @error('neighborhood')
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <!--end col-->
@@ -117,7 +126,8 @@
                                             <div class="col-sm-4">
                                                 <div>
                                                     <button type="submit" class="btn btn-success w-100"><i
-                                                class="ri-add-line align-bottom me-1"></i>Add PT-EDM</button>
+                                                            class="ri-add-line align-bottom me-1"></i>Add
+                                                        PT-EDM</button>
                                                 </div>
                                             </div>
                                             <!--end col-->
@@ -150,167 +160,214 @@
                                         <tbody class="list form-check-all">
                                             @foreach ($pts as $pt)
                                                 <tr>
-                                                <th scope="row">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" name="chk_child"
-                                                            value="option1">
-                                                    </div>
-                                                </th>
-                                                <td class="customer_name">{{$pt['name']}}</td>
-                                                <td class="email">{{$pt['city']}}</td>
-                                                <td class="phone">{{$pt['neighborhood']}}</td>
-                                                <td class="date">{{ \Carbon\Carbon::parse($pt['created_at'])->format('d/m/Y H:i') }}</td>
-                                                <td>
-                                                    <ul class="list-inline hstack gap-2 mb-0">
-                                                        <li class="list-inline-item edit" data-bs-toggle="tooltip"
-                                                            data-bs-trigger="hover" data-bs-placement="top"
-                                                            title="Edit">
-                                                            <a href="#" wire:click="edit({{ $pt['id'] }})" class="text-primary d-inline-block edit-item-btn">
-                                                                <i class="ri-pencil-fill fs-16"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li class="list-inline-item" data-bs-toggle="tooltip"
-                                                            data-bs-trigger="hover" data-bs-placement="top"
-                                                            title="Remove">
-                                                            <a class="text-danger d-inline-block remove-item-btn"
-                                                                data-bs-toggle="modal" href="#deleteRecordModal{{$pt['id']}}">
-                                                                <i class="ri-delete-bin-5-fill fs-16"></i>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
-
-                                            {{--*Modal Edit--}}
-
-                                            <script>
-                                                window.addEventListener('show-edit-modal', event => {
-                                                    var modal = new bootstrap.Modal(document.getElementById('shwModal'));
-                                                    modal.show();
-                                                });
-
-                                                window.addEventListener('close-edit-modal', event => {
-                                                    var modal = bootstrap.Modal.getInstance(document.getElementById('shwModal'));
-                                                    if (modal) {
-                                                        modal.hide();
-                                                    }
-
-                                                    // Remover o backdrop manualmente após fechar o modal
-                                                    setTimeout(() => {
-                                                        document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
-                                                        document.body.classList.remove('modal-open');
-                                                    }, 10);
-                                                });
-                                            </script>
-
-                                            <div wire:ignore.self class="modal fade" id="shwModal" tabindex="-1" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header bg-light p-3">
-                                                            <h5 class="modal-title" id="exampleModalLabel">Update PT - EDM</h5>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                                aria-label="Close" id="close-modal" wire:click="$dispatch('close-edit-modal')">
-                                                            </button>
+                                                    <th scope="row">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox"
+                                                                name="chk_child" value="option1">
                                                         </div>
+                                                    </th>
+                                                    <td class="customer_name">{{ $pt['name'] }}</td>
+                                                    <td class="email">{{ $pt['city'] }}</td>
+                                                    <td class="phone">{{ $pt['neighborhood'] }}</td>
+                                                    <td class="date">
+                                                        {{ \Carbon\Carbon::parse($pt['created_at'])->format('d/m/Y H:i') }}
+                                                    </td>
+                                                    <td>
+                                                        <ul class="list-inline hstack gap-2 mb-0">
+                                                            <li class="list-inline-item edit" data-bs-toggle="tooltip"
+                                                                data-bs-trigger="hover" data-bs-placement="top"
+                                                                title="Edit">
+                                                                <a href="#"
+                                                                    wire:click="edit({{ $pt['id'] }})"
+                                                                    class="text-primary d-inline-block edit-item-btn">
+                                                                    <i class="ri-pencil-fill fs-16"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li class="list-inline-item" data-bs-toggle="tooltip"
+                                                                data-bs-trigger="hover" data-bs-placement="top"
+                                                                title="Remove">
+                                                                <a class="text-danger d-inline-block remove-item-btn"
+                                                                    data-bs-toggle="modal"
+                                                                    href="#deleteRecordModal{{ $pt['id'] }}">
+                                                                    <i class="ri-delete-bin-5-fill fs-16"></i>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
 
-                                                        <form class="tablelist-form" wire:submit.prevent="update({{ $pt['id'] }})">
-                                                            <div class="modal-body">
-                                                                <input type="hidden" id="id-field" wire:model="id" value="{{ $pt['id'] }}" />
+                                                {{-- *Modal Edit --}}
 
-                                                                <div class="mb-3">
-                                                                    <label for="customername-field" class="form-label">PT Name / Code</label>
-                                                                    <input type="text" class="form-control @error('edit_name') is-invalid @enderror" 
-                                                                        wire:model="edit_name"/>
-                                                                    @error('edit_name')
-                                                                        <span class="text-danger">{{ $message }}</span>
-                                                                    @enderror
-                                                                </div>
+                                                <script>
+                                                    window.addEventListener('show-edit-modal', event => {
+                                                        var modal = new bootstrap.Modal(document.getElementById('shwModal'));
+                                                        modal.show();
+                                                    });
 
-                                                                <div class="mb-3">
-                                                                    <label for="status-field" class="form-label">City or Province</label>
-                                                                    <select class="form-control @error('edit_city') is-invalid @enderror" 
-                                                                            wire:model="edit_city">
-                                                                        <option value="">Select a city</option>
-                                                                        <option value="Maputo">Maputo (Cidade)</option>
-                                                                        <option value="Maputo_Provincia">Maputo (Província)</option>
-                                                                        <option value="Gaza">Gaza</option>
-                                                                        <option value="Inhambane">Inhambane</option>
-                                                                        <option value="Sofala">Sofala</option>
-                                                                        <option value="Manica">Manica</option>
-                                                                        <option value="Tete">Tete</option>
-                                                                        <option value="Zambezia">Zambézia</option>
-                                                                        <option value="Nampula">Nampula</option>
-                                                                        <option value="Cabo_Delgado">Cabo Delgado</option>
-                                                                        <option value="Niassa">Niassa</option>
-                                                                    </select>
-                                                                    @error('edit_city')
-                                                                        <span class="text-danger">{{ $message }}</span>
-                                                                    @enderror
-                                                                </div>
+                                                    window.addEventListener('close-edit-modal', event => {
+                                                        var modal = bootstrap.Modal.getInstance(document.getElementById('shwModal'));
+                                                        if (modal) {
+                                                            modal.hide();
+                                                        }
 
-                                                                <div class="mb-3">
-                                                                    <label for="status-field" class="form-label">Country</label>
-                                                                    <select class="form-control @error('edit_neighborhood') is-invalid @enderror" 
-                                                                            wire:model="edit_neighborhood">
-                                                                        <option value="">Select a Country</option>
-                                                                        <option value="Mozambique">Mozambique</option>
-                                                                    </select>
-                                                                    @error('edit_neighborhood')
-                                                                        <span class="text-danger">{{ $message }}</span>
-                                                                    @enderror
-                                                                </div>
-                                                            </div>
+                                                        // Remover o backdrop manualmente após fechar o modal
+                                                        setTimeout(() => {
+                                                            document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+                                                            document.body.classList.remove('modal-open');
+                                                        }, 10);
+                                                    });
+                                                </script>
 
-                                                            <div class="modal-footer">
-                                                                <div class="hstack gap-2 justify-content-end">
-                                                                    <button type="button" class="btn btn-light" data-bs-dismiss="modal" 
-                                                                            wire:click="$dispatch('close-edit-modal')">
-                                                                        Close
-                                                                    </button>
-                                                                    <button type="submit" class="btn btn-success" id="add-btn">
-                                                                        Update PT
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            {{--*End Modal--}}
-
-                                            <!-- Modal -->
-                                            <div class="modal fade zoomIn" id="deleteRecordModal{{$pt['id']}}" tabindex="-1" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <button type="button" class="btn-close" id="deleteRecord-close"
-                                                                data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="mt-2 text-center">
-                                                                <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop"
-                                                                    colors="primary:#f7b84b,secondary:#f06548"
-                                                                    style="width:100px;height:100px"></lord-icon>
-                                                                <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
-                                                                    <h4>Are you sure?</h4>
-                                                                    <p class="text-muted mx-4 mb-0">Are you sure you want to remove this record?</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
-                                                                <button type="button" class="btn w-sm btn-light"
-                                                                    data-bs-dismiss="modal">Close</button>
-                                                                <button type="button" class="btn w-sm btn-danger"
-                                                                    wire:click="delete({{ $pt['id'] }})"
-                                                                    data-bs-dismiss="modal">
-                                                                    Yes, Delete It!
+                                                <div wire:ignore.self class="modal fade" id="shwModal"
+                                                    tabindex="-1" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header bg-light p-3">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Update
+                                                                    PT - EDM</h5>
+                                                                <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal" aria-label="Close"
+                                                                    id="close-modal"
+                                                                    wire:click="$dispatch('close-edit-modal')">
                                                                 </button>
                                                             </div>
+
+                                                            <form class="tablelist-form"
+                                                                wire:submit.prevent="update({{ $pt['id'] }})">
+                                                                <div class="modal-body">
+                                                                    <input type="hidden" id="id-field"
+                                                                        wire:model="id"
+                                                                        value="{{ $pt['id'] }}" />
+
+                                                                    <div class="mb-3">
+                                                                        <label for="customername-field"
+                                                                            class="form-label">PT Name / Code</label>
+                                                                        <input type="text"
+                                                                            class="form-control @error('edit_name') is-invalid @enderror"
+                                                                            wire:model="edit_name" required />
+                                                                        @error('edit_name')
+                                                                            <span class="text-danger"
+                                                                                x-data="{ show: true }"
+                                                                                x-init="setTimeout(() => show = false, 10000)" x-show="show">
+                                                                                {{ $message }}
+                                                                            </span>
+                                                                        @enderror
+                                                                    </div>
+
+                                                                    <div class="mb-3">
+                                                                        <label for="status-field"
+                                                                            class="form-label">City or Province</label>
+                                                                        <select
+                                                                            class="form-control @error('edit_city') is-invalid @enderror"
+                                                                            wire:model="edit_city" required>
+                                                                            <option value="">Select a city
+                                                                            </option>
+                                                                            <option value="Maputo">Maputo (Cidade)
+                                                                            </option>
+                                                                            <option value="Maputo_Provincia">Maputo
+                                                                                (Província)</option>
+                                                                            <option value="Gaza">Gaza</option>
+                                                                            <option value="Inhambane">Inhambane
+                                                                            </option>
+                                                                            <option value="Sofala">Sofala</option>
+                                                                            <option value="Manica">Manica</option>
+                                                                            <option value="Tete">Tete</option>
+                                                                            <option value="Zambezia">Zambézia</option>
+                                                                            <option value="Nampula">Nampula</option>
+                                                                            <option value="Cabo_Delgado">Cabo Delgado
+                                                                            </option>
+                                                                            <option value="Niassa">Niassa</option>
+                                                                        </select>
+                                                                        @error('edit_city')
+                                                                            <span class="text-danger"
+                                                                                x-data="{ show: true }"
+                                                                                x-init="setTimeout(() => show = false, 10000)" x-show="show">
+                                                                                {{ $message }}
+                                                                            </span>
+                                                                        @enderror
+                                                                    </div>
+
+                                                                    <div class="mb-3">
+                                                                        <label for="status-field"
+                                                                            class="form-label">Country</label>
+                                                                        <select
+                                                                            class="form-control @error('edit_neighborhood') is-invalid @enderror"
+                                                                            wire:model="edit_neighborhood" required>
+                                                                            <option value="">Select a Country
+                                                                            </option>
+                                                                            <option value="Mozambique">Mozambique
+                                                                            </option>
+                                                                        </select>
+                                                                        @error('edit_neighborhood')
+                                                                            <span class="text-danger"
+                                                                                x-data="{ show: true }"
+                                                                                x-init="setTimeout(() => show = false, 10000)" x-show="show">
+                                                                                {{ $message }}
+                                                                            </span>
+                                                                        @enderror
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="modal-footer">
+                                                                    <div class="hstack gap-2 justify-content-end">
+                                                                        <button type="button" class="btn btn-light"
+                                                                            data-bs-dismiss="modal"
+                                                                            wire:click="$dispatch('close-edit-modal')">
+                                                                            Close
+                                                                        </button>
+                                                                        <button type="submit" class="btn btn-success"
+                                                                            id="add-btn">
+                                                                            Update PT
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <!--end modal -->
+
+
+                                                {{-- *End Modal --}}
+
+                                                <!-- Modal -->
+                                                <div class="modal fade zoomIn"
+                                                    id="deleteRecordModal{{ $pt['id'] }}" tabindex="-1"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="btn-close"
+                                                                    id="deleteRecord-close" data-bs-dismiss="modal"
+                                                                    aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="mt-2 text-center">
+                                                                    <lord-icon
+                                                                        src="https://cdn.lordicon.com/gsqxdxog.json"
+                                                                        trigger="loop"
+                                                                        colors="primary:#f7b84b,secondary:#f06548"
+                                                                        style="width:100px;height:100px"></lord-icon>
+                                                                    <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
+                                                                        <h4>Are you sure?</h4>
+                                                                        <p class="text-muted mx-4 mb-0">Are you sure
+                                                                            you want to remove this record?</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div
+                                                                    class="d-flex gap-2 justify-content-center mt-4 mb-2">
+                                                                    <button type="button" class="btn w-sm btn-light"
+                                                                        data-bs-dismiss="modal">Close</button>
+                                                                    <button type="button" class="btn w-sm btn-danger"
+                                                                        wire:click="delete({{ $pt['id'] }})"
+                                                                        data-bs-dismiss="modal">
+                                                                        Yes, Delete It!
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--end modal -->
                                             @endforeach
                                         </tbody>
                                     </table>
@@ -337,18 +394,18 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                            </div>
+
                         </div>
                     </div>
-
                 </div>
-                <!--end col-->
-            </div>
-            <!--end row-->
 
+            </div>
+            <!--end col-->
         </div>
-        <!-- container-fluid -->
+        <!--end row-->
+
     </div>
-    <!-- End Page-content -->
+    <!-- container-fluid -->
+</div>
+<!-- End Page-content -->
 </div>
