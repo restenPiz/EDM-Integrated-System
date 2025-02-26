@@ -220,7 +220,7 @@
                                                                 <div class="mb-3">
                                                                     <label for="customername-field" class="form-label">PT Name / Code</label>
                                                                     <input type="text" class="form-control @error('edit_name') is-invalid @enderror" 
-                                                                        wire:model="edit_name" required />
+                                                                        wire:model="edit_name"/>
                                                                     @error('edit_name')
                                                                         <span class="text-danger">{{ $message }}</span>
                                                                     @enderror
@@ -229,7 +229,7 @@
                                                                 <div class="mb-3">
                                                                     <label for="status-field" class="form-label">City or Province</label>
                                                                     <select class="form-control @error('edit_city') is-invalid @enderror" 
-                                                                            wire:model="edit_city" required>
+                                                                            wire:model="edit_city">
                                                                         <option value="">Select a city</option>
                                                                         <option value="Maputo">Maputo (Cidade)</option>
                                                                         <option value="Maputo_Provincia">Maputo (Província)</option>
@@ -251,7 +251,7 @@
                                                                 <div class="mb-3">
                                                                     <label for="status-field" class="form-label">Country</label>
                                                                     <select class="form-control @error('edit_neighborhood') is-invalid @enderror" 
-                                                                            wire:model="edit_neighborhood" required>
+                                                                            wire:model="edit_neighborhood">
                                                                         <option value="">Select a Country</option>
                                                                         <option value="Mozambique">Mozambique</option>
                                                                     </select>
