@@ -163,12 +163,12 @@
                                                 <td>
                                                     <ul class="list-inline hstack gap-2 mb-0">
                                                         <li class="list-inline-item edit" data-bs-toggle="tooltip"
-    data-bs-trigger="hover" data-bs-placement="top" title="Edit">
-    <a href="#" wire:click="edit({{ $pt['id'] }})"
-        class="text-primary d-inline-block edit-item-btn">
-        <i class="ri-pencil-fill fs-16"></i>
-    </a>
-</li>
+                                                            data-bs-trigger="hover" data-bs-placement="top" title="Edit">
+                                                            <a href="#" wire:click="edit({{ $pt['id'] }})"
+                                                                class="text-primary d-inline-block edit-item-btn">
+                                                                <i class="ri-pencil-fill fs-16"></i>
+                                                            </a>
+                                                        </li>
                                                         <li class="list-inline-item" data-bs-toggle="tooltip"
                                                             data-bs-trigger="hover" data-bs-placement="top"
                                                             title="Remove">
@@ -183,18 +183,7 @@
 
                                             {{--*Modal Edit--}}
 
-                                            <script>
-                                                window.addEventListener('showModal', event => {
-                                                    var modal = new bootstrap.Modal(document.getElementById('showModal'));
-                                                    modal.show();
-                                                });
-
-                                                window.addEventListener('close-edit-modal', event => {
-                                                     var modal = new bootstrap.Modal(document.getElementById('showModal'));
-                                                    modal.hide();
-                                                });
-                                            </script>
-
+                                            @if ($showEditModal)
                                             <div class="modal fade" id="showModal" tabindex="-1" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered">
                                                     <div class="modal-content">
@@ -253,6 +242,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            @endif
                                             {{--*End Modal--}}
 
                                             <!-- Modal -->

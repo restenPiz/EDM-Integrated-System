@@ -11,6 +11,8 @@ class PTEDM extends Component
     public $pts = [];
     public $city, $pt, $name, $neighborhood, $deleteId, $id;
 
+    public $showEditModal = false;
+
     //*This dispatch is created to hide the alerts when the conditions returns some session
     public function mount()
     {
@@ -58,7 +60,7 @@ class PTEDM extends Component
             session()->flash('success', 'PT-EDM updated with success!');
             $this->reset(['name', 'city', 'neighborhood']);
             $this->dispatch('hide-alerts');
-            $this->emit('close-edit-modal');
+            $this->dispatch('close-edit-modal');
             $this->fetchPts();
         } else {
             session()->flash('error', 'Failed to update PT-EDM!');
@@ -76,7 +78,7 @@ class PTEDM extends Component
             $this->editName = $pt['name'];
             $this->editCity = $pt['city'];
 
-            $this->dispatch('showModal');
+            $this->showEditModal = true;
         }
     }
     public function delete($id)
