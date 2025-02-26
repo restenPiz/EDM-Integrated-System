@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Illuminate\Support\Facades\Http;
 use Livewire\Component;
+use function usleep;
 
 class PTEDM extends Component
 {
@@ -53,14 +54,14 @@ class PTEDM extends Component
     public function update($id)
     {
         $response = Http::post(env('API_URL') . "/updatePts/{$id}", [
-            'name' => $this->name,
-            'city' => $this->city,
-            'neighborhood' => $this->neighborhood,
+            'name' => $this->edit_name,
+            'city' => $this->edit_city,
+            'neighborhood' => $this->edit_neighborhood,
         ]);
 
         if ($response->successful()) {
             session()->flash('success', 'PT-EDM updated with success!');
-            $this->reset(['name', 'city', 'neighborhood']);
+            $this->reset(['edit_id', 'edit_name', 'edit_city', 'edit_neighborhood']);
             $this->dispatch('hide-alerts');
             $this->dispatch('close-edit-modal');
             $this->fetchPts();
@@ -78,6 +79,8 @@ class PTEDM extends Component
             $this->edit_name = $pt['name'];
             $this->edit_city = $pt['city'];
             $this->edit_neighborhood = $pt['neighborhood'];
+
+            usleep(200000); // 200ms
 
             $this->dispatch('show-edit-modal');
         }

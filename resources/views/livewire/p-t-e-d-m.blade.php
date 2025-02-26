@@ -185,12 +185,19 @@
 
                                             <script>
                                                 window.addEventListener('show-edit-modal', event => {
-                                                    var modal = new bootstrap.Modal(document.getElementById('shwModal{{$pt['id']}}'));
+                                                    var modal = new bootstrap.Modal(document.getElementById('shwModal'));
                                                     modal.show();
+                                                });
+
+                                                window.addEventListener('close-edit-modal', event => {
+                                                    var modal = bootstrap.Modal.getInstance(document.getElementById('shwModal'));
+                                                    if (modal) {
+                                                        modal.hide();
+                                                    }
                                                 });
                                             </script>
 
-                                            <div class="modal fade" id="shwModal{{$pt['id']}}" tabindex="-1" aria-hidden="true">
+                                            <div wire:ignore class="modal fade" id="shwModal" tabindex="-1" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered">
                                                     <div class="modal-content">
                                                         <div class="modal-header bg-light p-3">
