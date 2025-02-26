@@ -58,7 +58,7 @@ class PTEDM extends Component
             session()->flash('success', 'PT-EDM updated with success!');
             $this->reset(['name', 'city', 'neighborhood']);
             $this->dispatch('hide-alerts');
-            $this->dispatch('close-edit-modal');
+            $this->emit('close-edit-modal');
             $this->fetchPts();
         } else {
             session()->flash('error', 'Failed to update PT-EDM!');
