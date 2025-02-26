@@ -58,6 +58,7 @@ class PTEDM extends Component
             session()->flash('success', 'PT-EDM updated with success!');
             $this->reset(['name', 'city', 'neighborhood']);
             $this->dispatch('hide-alerts');
+            $this->dispatch('close-edit-modal');
             $this->fetchPts();
         } else {
             session()->flash('error', 'Failed to update PT-EDM!');
@@ -75,7 +76,7 @@ class PTEDM extends Component
             $this->editName = $pt['name'];
             $this->editCity = $pt['city'];
 
-            $this->dispatchBrowserEvent('showModal');
+            $this->dispatch('showModal');
         }
     }
     public function delete($id)
