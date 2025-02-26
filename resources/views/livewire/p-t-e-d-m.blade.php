@@ -194,6 +194,12 @@
                                                     if (modal) {
                                                         modal.hide();
                                                     }
+
+                                                    // Remover o backdrop manualmente após fechar o modal
+                                                    setTimeout(() => {
+                                                        document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+                                                        document.body.classList.remove('modal-open');
+                                                    }, 10);
                                                 });
                                             </script>
 
@@ -203,7 +209,7 @@
                                                         <div class="modal-header bg-light p-3">
                                                             <h5 class="modal-title" id="exampleModalLabel">Update PT - EDM</h5>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                                aria-label="Close" id="close-modal"></button>
+                                                                aria-label="Close" id="close-modal"   wire:click="$dispatch('close-edit-modal')"></button>
                                                         </div>
                                                         <form class="tablelist-form" wire:submit="update({{ $pt['id'] }})" method="post">
                                                             <div class="modal-body">
@@ -244,7 +250,7 @@
                                                             <div class="modal-footer">
                                                                 <div class="hstack gap-2 justify-content-end">
                                                                     <button type="button" class="btn btn-light"
-                                                                        data-bs-dismiss="modal">Close</button>
+                                                                        data-bs-dismiss="modal"   wire:click="$dispatch('close-edit-modal')">Close</button>
                                                                     <button type="submit" class="btn btn-success" id="add-btn" data-bs-dismiss="modal">Update PT</button>
                                                                     <!-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> -->
                                                                 </div>
