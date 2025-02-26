@@ -163,9 +163,9 @@
                                                 <td>
                                                     <ul class="list-inline hstack gap-2 mb-0">
                                                         <li class="list-inline-item edit" data-bs-toggle="tooltip"
-                                                            data-bs-trigger="hover" data-bs-placement="top" title="Edit">
-                                                            <a href="#" wire:click="edit({{ $pt['id'] }})"
-                                                                class="text-primary d-inline-block edit-item-btn">
+                                                            data-bs-trigger="hover" data-bs-placement="top"
+                                                            title="Edit">
+                                                            <a href="#showModal{{$pt['id']}}"data-bs-toggle="modal" class="text-primary d-inline-block edit-item-btn">
                                                                 <i class="ri-pencil-fill fs-16"></i>
                                                             </a>
                                                         </li>
@@ -183,8 +183,14 @@
 
                                             {{--*Modal Edit--}}
 
-                                            @if ($showEditModal)
-                                            <div class="modal fade" id="showModal" tabindex="-1" aria-hidden="true">
+                                            <script>
+                                                window.addEventListener('showModal', event => {
+                                                    var myModal = new bootstrap.Modal(document.getElementById('showModal'));
+                                                    myModal.show();
+                                                });
+                                            </script>
+
+                                            <div class="modal fade" id="showModal{{$pt['id']}}" tabindex="-1" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered">
                                                     <div class="modal-content">
                                                         <div class="modal-header bg-light p-3">
@@ -242,7 +248,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            @endif
                                             {{--*End Modal--}}
 
                                             <!-- Modal -->

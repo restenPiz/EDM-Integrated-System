@@ -67,20 +67,20 @@ class PTEDM extends Component
             $this->dispatch('hide-alerts');
         }
     }
-    public function edit($id)
-    {
-        $response = Http::get(env('API_URL') . "/showPts/{$id}");
+    // public function edit($id)
+    // {
+    //     $response = Http::get(env('API_URL') . "/showPts/{$id}");
 
-        if ($response->successful()) {
-            $pt = $response->json();
+    //     if ($response->successful()) {
+    //         $pt = $response->json();
 
-            $this->editId = $pt['id'];
-            $this->editName = $pt['name'];
-            $this->editCity = $pt['city'];
+    //         $this->editId = $pt['id'];
+    //         $this->editName = $pt['name'];
+    //         $this->editCity = $pt['city'];
 
-            $this->showEditModal = true;
-        }
-    }
+    //         $this->dispatch('showModal');
+    //     }
+    // }
     public function delete($id)
     {
         $response = Http::post(env('API_URL') . "/deletePts/{$id}");
