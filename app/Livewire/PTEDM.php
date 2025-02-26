@@ -35,6 +35,12 @@ class PTEDM extends Component
     }
     public function save()
     {
+        $this->validate([
+            'name' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
+            'neighborhood' => 'required|string|max:255',
+        ]);
+
         $response = Http::post(env('API_URL') . '/storePts', [
             'name' => $this->name,
             'city' => $this->city,
@@ -53,6 +59,12 @@ class PTEDM extends Component
     }
     public function update($id)
     {
+        $this->validate([
+            'edit_name' => 'required|string|max:255',
+            'edit_city' => 'required|string|max:255',
+            'edit_neighborhood' => 'required|string|max:255',
+        ]);
+
         $response = Http::post(env('API_URL') . "/updatePts/{$id}", [
             'name' => $this->edit_name,
             'city' => $this->edit_city,
