@@ -72,7 +72,7 @@
                                     <div class="col-xl-4">
                                         <div class="search-box">
                                             <input type="text" class="form-control"  wire:model="name"
-                                                placeholder="Write the name or code of that PT - EDM">
+                                                placeholder="Write the name or code of that PT - EDM" required>
                                             @error('name') <span class="text-danger">{{ $message }}</span> @enderror
                                         </div>
                                     </div>
@@ -81,7 +81,7 @@
                                         <div class="row g-3">
                                             <div class="col-sm-4">
                                                     <div>
-                                                        <select class="form-control" data-plugin="choices" data-choices
+                                                        <select class="form-control" data-plugin="choices" data-choices required
                                                             data-choices-search-true  wire:model="city" id="province_city">
                                                             <option value="">Selecione uma cidade ou província</option>
                                                             <option value="Maputo">Maputo (Cidade)</option>
@@ -105,7 +105,7 @@
                                                 <div>
                                                     <select class="form-control" data-plugin="choices" data-choices
                                                         data-choices-search-false  wire:model="neighborhood"
-                                                        id="idStatus">
+                                                        id="idStatus" required>
                                                         <option value="">Selecione uma cidade ou província</option>
                                                         <option value="Mozambique">Mozambique</option>
                                                     </select>
@@ -165,7 +165,7 @@
                                                         <li class="list-inline-item edit" data-bs-toggle="tooltip"
                                                             data-bs-trigger="hover" data-bs-placement="top"
                                                             title="Edit">
-                                                            <a href="#showModal{{$pt['id']}}"data-bs-toggle="modal" class="text-primary d-inline-block edit-item-btn">
+                                                            <a href="#" wire:click="edit({{ $pt['id'] }})" class="text-primary d-inline-block edit-item-btn">
                                                                 <i class="ri-pencil-fill fs-16"></i>
                                                             </a>
                                                         </li>
@@ -184,13 +184,13 @@
                                             {{--*Modal Edit--}}
 
                                             <script>
-                                                window.addEventListener('showModal', event => {
-                                                    var myModal = new bootstrap.Modal(document.getElementById('showModal'));
-                                                    myModal.show();
+                                                window.addEventListener('show-edit-modal', event => {
+                                                    var modal = new bootstrap.Modal(document.getElementById('shwModal{{$pt['id']}}'));
+                                                    modal.show();
                                                 });
                                             </script>
 
-                                            <div class="modal fade" id="showModal{{$pt['id']}}" tabindex="-1" aria-hidden="true">
+                                            <div class="modal fade" id="shwModal{{$pt['id']}}" tabindex="-1" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered">
                                                     <div class="modal-content">
                                                         <div class="modal-header bg-light p-3">
@@ -204,14 +204,13 @@
 
                                                                 <div class="mb-3">
                                                                     <label for="customername-field" class="form-label">PT Name / Code</label>
-                                                                    <input type="text" class="form-control" wire:model="name" required />
+                                                                    <input type="text" class="form-control" wire:model="edit_name" required />
                                                                     <div class="invalid-feedback">Please enter with a PT name or Code.</div>
                                                                 </div>
 
                                                                 <div>
                                                                     <label for="status-field" class="form-label">City or Province</label>
-                                                                    <select class="form-control" data-choices data-choices-search-false wire:model="city"
-                                                                        id="status-field" required>
+                                                                    <select class="form-control" wire:model="edit_city" required>
                                                                         <option value="">Select a city</option>
                                                                         <option value="Maputo">Maputo (Cidade)</option>
                                                                         <option value="Maputo_Provincia">Maputo (Província)</option>
@@ -229,8 +228,7 @@
 
                                                                 <div>
                                                                     <label for="status-field" class="form-label">Country</label>
-                                                                    <select class="form-control" data-choices data-choices-search-false
-                                                                     wire:model="neighborhood" id="status-field" required>
+                                                                    <select class="form-control" wire:model="edit_neighborhood" required>
                                                                         <option value="">Select a Country</option>
                                                                         <option value="Mozambique">Mozambique</option>
                                                                     </select>

@@ -10,6 +10,8 @@ class PTEDM extends Component
     //*Defining the attributes what im using here in this object
     public $pts = [];
     public $city, $pt, $name, $neighborhood, $deleteId, $id;
+    //*Edit PT attributes
+    public $edit_id, $edit_name, $edit_city, $edit_neighborhood;
 
     public $showEditModal = false;
 
@@ -67,20 +69,19 @@ class PTEDM extends Component
             $this->dispatch('hide-alerts');
         }
     }
-    // public function edit($id)
-    // {
-    //     $response = Http::get(env('API_URL') . "/showPts/{$id}");
+    public function edit($id)
+    {
+        $pt = collect($this->pts)->where('id', $id)->first();
 
-    //     if ($response->successful()) {
-    //         $pt = $response->json();
+        if ($pt) {
+            $this->edit_id = $pt['id'];
+            $this->edit_name = $pt['name'];
+            $this->edit_city = $pt['city'];
+            $this->edit_neighborhood = $pt['neighborhood'];
 
-    //         $this->editId = $pt['id'];
-    //         $this->editName = $pt['name'];
-    //         $this->editCity = $pt['city'];
-
-    //         $this->dispatch('showModal');
-    //     }
-    // }
+            $this->dispatch('show-edit-modal');
+        }
+    }
     public function delete($id)
     {
         $response = Http::post(env('API_URL') . "/deletePts/{$id}");
