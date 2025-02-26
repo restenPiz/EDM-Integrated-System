@@ -185,17 +185,15 @@
                                             {{--*Modal Edit--}}
 
                                             <script>
-                                                window.addEventListener('showModal', event => {
-                                                    var myModal = new bootstrap.Modal(document.getElementById('showModal'));
-                                                    myModal.show();
+                                                window.addEventListener('show-edit-modal', event => {
+                                                    var modal = new bootstrap.Modal(document.getElementById('showModal'));
+                                                    modal.show();
                                                 });
-                                            </script>
 
-                                            <script>
                                                 window.addEventListener('close-edit-modal', event => {
-                                                    var myModal = bootstrap.Modal.getInstance(document.getElementById('showModal'));
-                                                    if (myModal) {
-                                                        myModal.hide();
+                                                    var modal = bootstrap.Modal.getInstance(document.getElementById('showModal'));
+                                                    if (modal) {
+                                                        modal.hide();
                                                     }
                                                 });
                                             </script>
