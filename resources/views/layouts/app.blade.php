@@ -136,7 +136,7 @@
     </div>
 </header>
 
-        <div class="app-menu navbar-menu" style="background-color:#3B6790">
+        <div class="app-menu navbar-menu" style="color:white;background-color:#3B6790">
             <!-- LOGO -->
             <div class="navbar-brand-box">
                 <!-- Dark Logo-->
@@ -163,14 +163,14 @@
             </div>
 
             <div id="scrollbar">
-                <div class="container-fluid" style="color:white">
+                <div class="container-fluid">
 
                     <div id="two-column-menu">
                     </div>
                     <ul class="navbar-nav" id="navbar-nav">
                         <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                         <li class="nav-item">
-                            <a class="nav-link menu-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" href="{{route('dashboard')}}" wire:navigate>
+                            <a style="color: white" class="nav-link menu-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" href="{{route('dashboard')}}" wire:navigate>
                                 <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">EDM Dashboard</span>
                             </a>
                         </li> <!-- end Dashboard Menu -->
