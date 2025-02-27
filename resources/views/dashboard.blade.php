@@ -139,7 +139,7 @@
                                 </div>
                                 <div data-simplebar class="tasks-wrapper px-3 mx-n3">
                                     <div id="unassigned-task" class="tasks">
-                                        <div class="card tasks-box" style="background-color:rgb(238, 235, 235)">
+                                        <div class="card tasks-box" style="background-color:rgb(247, 247, 247)">
                                             <div class="card-body">
                                                 <div class="d-flex mb-2">
                                                     <h6 class="fs-15 mb-0 flex-grow-1 text-truncate task-title"><a
@@ -245,7 +245,7 @@
                                 </div>
                                 <div data-simplebar class="tasks-wrapper px-3 mx-n3">
                                     <div id="todo-task" class="tasks">
-                                        <div class="card tasks-box" style="background-color:rgb(238, 235, 235)">
+                                        <div class="card tasks-box" style="background-color:rgb(247, 247, 247)">
                                             <div class="card-body">
                                                 <div class="d-flex mb-2">
                                                     <div class="flex-grow-1">
@@ -335,7 +335,7 @@
                                 </div>
                                 <div data-simplebar class="tasks-wrapper px-3 mx-n3">
                                     <div id="inprogress-task" class="tasks">
-                                        <div class="card tasks-box" style="background-color:rgb(238, 235, 235)">
+                                        <div class="card tasks-box" style="background-color:rgb(247, 247, 247)">
                                             <div class="card-body">
                                                 <div class="d-flex mb-2">
                                                     <a href="javascript:void(0)"
@@ -461,7 +461,7 @@
                                 </div>
                                 <div data-simplebar class="tasks-wrapper px-3 mx-n3">
                                     <div id="completed-task" class="tasks">
-                                        <div class="card tasks-box" style="background-color:rgb(238, 235, 235)">
+                                        <div class="card tasks-box" style="background-color:rgb(247, 247, 247)">
                                             <div class="card-body">
                                                 <div class="d-flex mb-2">
                                                     <h6 class="fs-15 mb-0 flex-grow-1 text-truncate task-title"><a
@@ -598,7 +598,7 @@
                                 </div>
                                 <div data-simplebar class="tasks-wrapper px-3 mx-n3">
                                     <div id="completed-task" class="tasks">
-                                        <div class="card tasks-box" style="background-color:rgb(238, 235, 235)">
+                                        <div class="card tasks-box" style="background-color:rgb(247, 247, 247)">
                                             <div class="card-body">
                                                 <div class="d-flex mb-2">
                                                     <h6 class="fs-15 mb-0 flex-grow-1 text-truncate task-title"><a

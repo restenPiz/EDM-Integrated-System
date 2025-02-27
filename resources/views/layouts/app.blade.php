@@ -35,12 +35,12 @@
     <!-- Begin page -->
     <div id="layout-wrapper">
 
-        <header id="page-topbar" style="background-color:orange">
+        <header id="page-topbar" style="background-color: #EFB036">
     <div class="layout-width">
         <div class="navbar-header">
             <div class="d-flex">
                 <!-- LOGO -->
-                <div class="navbar-brand-box horizontal-logo">
+                <div class="navbar-brand-box horizontal-logo" >
                     <a href="{{route('dashboard')}}" wire:navigate class="logo logo-dark">
                         <span class="logo-sm">
                             <img src="../assets/edm.png" alt="" height="100">
@@ -136,7 +136,7 @@
     </div>
 </header>
 
-        <div class="app-menu navbar-menu">
+        <div class="app-menu navbar-menu" style="background-color:#3B6790">
             <!-- LOGO -->
             <div class="navbar-brand-box">
                 <!-- Dark Logo-->
