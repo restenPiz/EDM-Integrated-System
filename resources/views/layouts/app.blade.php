@@ -27,13 +27,8 @@
     <!-- custom Css-->
     <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
 
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-        <style>
-            .nav-link, .menu-link{
-                color:white;
-            }
-        </style>
 </head>
 
 <body>
