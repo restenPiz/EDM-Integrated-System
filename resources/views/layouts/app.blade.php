@@ -28,6 +28,12 @@
     <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <style>
+            .nav-link, .menu-link{
+                color:white;
+            }
+        </style>
 </head>
 
 <body>
@@ -170,7 +176,7 @@
                     <ul class="navbar-nav" id="navbar-nav">
                         <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                         <li class="nav-item">
-                            <a style="color: white" class="nav-link menu-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" href="{{route('dashboard')}}" wire:navigate>
+                            <a class="nav-link menu-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" href="{{route('dashboard')}}" wire:navigate>
                                 <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">EDM Dashboard</span>
                             </a>
                         </li> <!-- end Dashboard Menu -->

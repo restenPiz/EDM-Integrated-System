@@ -38,9 +38,9 @@
 
 :root {
     --vz-vertical-menu-bg: #fff;
-    --vz-vertical-menu-item-color: #6d7080;
-    --vz-vertical-menu-item-hover-color: #405189;
-    --vz-vertical-menu-item-active-color: #405189;
+    --vz-vertical-menu-item-color: #ffffff;
+        --vz-vertical-menu-item-hover-color: #ffffff;
+        --vz-vertical-menu-item-active-color: #ffffff;
     --vz-vertical-menu-sub-item-color: #7c7f90;
     --vz-vertical-menu-sub-item-hover-color: #405189;
     --vz-vertical-menu-sub-item-active-color: #405189;
@@ -176,7 +176,7 @@
 }
 
 [data-layout-mode=dark] .dropdown-menu {
-    --vz-dropdown-bg: #292e33;
+    --vz-dropdown-bg: #ffffff;
     --vz-dropdown-link-color: #adb5bd;
     --vz-dropdown-link-hover-color: #b9bfc4;
     --vz-dropdown-link-hover-bg: #2f343a;
