@@ -92,7 +92,7 @@ class PTEDM extends Component
             $this->edit_city = $pt['city'];
             $this->edit_neighborhood = $pt['neighborhood'];
 
-            usleep(200000); // 200ms
+            // usleep(200000); // 200ms 
 
             $this->dispatch('show-edit-modal');
         }
