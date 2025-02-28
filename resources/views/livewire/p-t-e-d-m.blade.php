@@ -210,7 +210,6 @@
                                                             modal.hide();
                                                         }
 
-                                                        // Remover o backdrop manualmente após fechar o modal
                                                         setTimeout(() => {
                                                             document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
                                                             document.body.classList.remove('modal-open');
