@@ -192,10 +192,25 @@
                                             <div class="modal-body">
                                                 <input type="hidden" id="id-field" />
 
-                                                <div class="mb-3" id="modal-id" style="display: none;">
-                                                    <label for="id-field1" class="form-label">ID</label>
-                                                    <input type="text" id="id-field1" class="form-control"
-                                                        placeholder="ID" readonly />
+
+                                                <div class="text-center">
+                                                    <div class="position-relative d-inline-block">
+                                                        <div class="position-absolute  bottom-0 end-0">
+                                                            <label for="customer-image-input" class="mb-0" data-bs-toggle="tooltip" data-bs-placement="right" title="Select Image">
+                                                                <div class="avatar-xs cursor-pointer">
+                                                                    <div class="avatar-title bg-light border rounded-circle text-muted">
+                                                                        <i class="ri-image-fill"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </label>
+                                                            <input class="form-control d-none" value="" id="customer-image-input" type="file" accept="image/png, image/gif, image/jpeg">
+                                                        </div>
+                                                        <div class="avatar-lg p-1">
+                                                            <div class="avatar-title bg-light rounded-circle">
+                                                                <img src="assets/images/users/user-dummy-img.jpg" id="customer-img" class="avatar-md rounded-circle object-cover" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
 
                                                 <div class="mb-3">
