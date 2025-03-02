@@ -188,10 +188,9 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close" id="close-modal"></button>
                                         </div>
-                                        <form class="tablelist-form" autocomplete="off">
+                                        <form class="tablelist-form" autocomplete="off" method="post" 
+                                         wire:submit.prevent="save">
                                             <div class="modal-body">
-                                                <input type="hidden" id="id-field" />
-
 
                                                 <div class="text-center">
                                                     <div class="position-relative d-inline-block">
@@ -203,7 +202,7 @@
                                                                     </div>
                                                                 </div>
                                                             </label>
-                                                            <input class="form-control d-none" value="" id="customer-image-input" type="file" accept="image/png, image/gif, image/jpeg">
+                                                            <input wire:model="file" class="form-control d-none" value="" id="customer-image-input" type="file" accept="image/png, image/gif, image/jpeg">
                                                         </div>
                                                         <div class="avatar-lg p-1">
                                                             <div class="avatar-title bg-light rounded-circle">
@@ -214,51 +213,35 @@
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label for="customername-field" class="form-label">Customer
+                                                    <label for="customername-field" class="form-label">User
                                                         Name</label>
-                                                    <input type="text" id="customername-field"
+                                                    <input type="text" id="customername-field" wire:model="name"
                                                         class="form-control" placeholder="Enter name" required />
-                                                    <div class="invalid-feedback">Please enter a customer name.</div>
                                                 </div>
 
                                                 <div class="mb-3">
                                                     <label for="email-field" class="form-label">Email</label>
                                                     <input type="email" id="email-field" class="form-control"
-                                                        placeholder="Enter email" required />
-                                                    <div class="invalid-feedback">Please enter an email.</div>
+                                                        placeholder="Enter email" wire:model="email" required />
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label for="phone-field" class="form-label">Phone</label>
-                                                    <input type="text" id="phone-field" class="form-control"
-                                                        placeholder="Enter phone no." required />
-                                                    <div class="invalid-feedback">Please enter a phone.</div>
+                                                    <label for="phone-field" class="form-label">Password</label>
+                                                    <input wire:model="password" type="password" id="phone-field" class="form-control" required />
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label for="date-field" class="form-label">Joining Date</label>
-                                                    <input type="date" id="date-field" class="form-control"
-                                                        data-provider="flatpickr" data-date-format="d M, Y" required
-                                                        placeholder="Select date" />
-                                                    <div class="invalid-feedback">Please select a date.</div>
+                                                    <label for="phone-field" class="form-label">Password Confirmation</label>
+                                                    <input wire:model="password" type="password" id="phone-field" class="form-control" required />
                                                 </div>
 
-                                                <div>
-                                                    <label for="status-field" class="form-label">Status</label>
-                                                    <select class="form-control" data-choices data-choices-search-false
-                                                        name="status-field" id="status-field" required>
-                                                        <option value="">Status</option>
-                                                        <option value="Active">Active</option>
-                                                        <option value="Block">Block</option>
-                                                    </select>
-                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <div class="hstack gap-2 justify-content-end">
                                                     <button type="button" class="btn btn-light"
                                                         data-bs-dismiss="modal">Close</button>
                                                     <button type="submit" class="btn btn-success" id="add-btn">Add
-                                                        Customer</button>
+                                                        User</button>
                                                     <!-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> -->
                                                 </div>
                                             </div>
