@@ -16,17 +16,17 @@ class Users extends Component
     {
         $this->validate([
             'name' => 'required|string|max:255',
-            'file' => 'required|string|max:255',
-            'password' => 'required|string|max:255',
-            'email' => 'required|string|max:255',
+            'file' => 'required|file|mimes:jpg,png,pdf|max:2048',
+            'password' => 'required|string|min:6|max:255',
+            'email' => 'required|email|max:255',
         ]);
 
-        $response = Http::post(env('API_URL') . '/storeUsers', [
-            'name' => $this->name,
-            'file' => $this->file,
-            'password' => $this->password,
-            'email' => $this->email,
-        ]);
+        $response = Http::attach('file', file_get_contents($this->file->getRealPath()), $this->file->getClientOriginalName())
+            ->post(env('API_URL') . '/storeUsers', [
+                'name' => $this->name,
+                'password' => $this->password,
+                'email' => $this->email,
+            ]);
 
         if ($response->successful()) {
             session()->flash('success', 'User added with success!');
