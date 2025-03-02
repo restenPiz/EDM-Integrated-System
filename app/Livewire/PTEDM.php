@@ -14,8 +14,6 @@ class PTEDM extends Component
     //*Edit PT attributes
     public $edit_id, $edit_name, $edit_city, $edit_neighborhood;
 
-    public $showEditModal = false;
-
     //*This dispatch is created to hide the alerts when the conditions returns some session
     public function mount()
     {
