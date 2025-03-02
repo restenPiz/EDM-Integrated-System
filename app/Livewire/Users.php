@@ -21,7 +21,7 @@ class Users extends Component
             'email' => 'required|string|max:255',
         ]);
 
-        $response = Http::post(env('API_URL') . '/storeUser', [
+        $response = Http::post(env('API_URL') . '/storeUsers', [
             'name' => $this->name,
             'file' => $this->file,
             'password' => $this->password,
