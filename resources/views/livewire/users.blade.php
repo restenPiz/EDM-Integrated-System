@@ -64,6 +64,30 @@
                                 <!--end row-->
                             </form>
                         </div>
+                        @if (session()->has('success'))
+                            <div id="alert-box" class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+
+                        @if (session()->has('error'))
+                            <div id="alert-box" class="alert alert-danger">
+                                {{ session('error') }}
+                            </div>
+                        @endif
+
+                        <script>
+                            document.addEventListener('hide-alerts', () => {
+                                setTimeout(() => {
+                                    let alerts = document.querySelectorAll('.alert');
+                                    alerts.forEach(alert => {
+                                        alert.style.transition = "opacity 0.5s";
+                                        alert.style.opacity = "0";
+                                        setTimeout(() => alert.remove(), 500); // Remove o alerta da DOM
+                                    });
+                                }, 5000);
+                            });
+                        </script>
                         <div class="card-body">
                             <div>
                                 <div class="table-responsive table-card mb-1">
@@ -203,7 +227,7 @@
 
                                                 <div class="mb-3">
                                                     <label for="phone-field" class="form-label">Password Confirmation</label>
-                                                    <input wire:model="password" type="password" id="phone-field" class="form-control" required />
+                                                    <input wire:model="password_confirmation" type="password" id="phone-field" class="form-control" required />
                                                 </div>
 
                                             </div>
