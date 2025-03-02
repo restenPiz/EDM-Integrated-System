@@ -229,11 +229,9 @@
                                                             </div>
 
                                                             <form class="tablelist-form"
-                                                                wire:submit.prevent="update({{ $pt['id'] }})">
+                                                                wire:submit.prevent="update({{ $edit_id }})">
                                                                 <div class="modal-body">
-                                                                    <input type="hidden" id="id-field"
-                                                                        wire:model="id"
-                                                                        value="{{ $pt['id'] }}" />
+                                                                    <input type="hidden" wire:model="edit_id" />
 
                                                                     <div class="mb-3">
                                                                         <label for="customername-field"
