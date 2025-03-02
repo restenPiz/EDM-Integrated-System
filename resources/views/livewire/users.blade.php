@@ -79,8 +79,8 @@
 
                                                 <th class="sort" data-sort="customer_name">Username</th>
                                                 <th class="sort" data-sort="email">Email</th>
-                                                <th class="sort" data-sort="phone">Phone</th>
                                                 <th class="sort" data-sort="date">Created_at</th>
+                                                <th class="sort" data-sort="date">Updated_at</th>
                                                 <th class="sort" data-sort="action"></th>
                                             </tr>
                                         </thead>
@@ -103,7 +103,7 @@
                                                     </div>
                                                 </td>
                                                 <td class="email">marycousar@velzon.com</td>
-                                                <td class="phone">580-464-4694</td>
+                                                <td class="date">06 Apr, 2021</td>
                                                 <td class="date">06 Apr, 2021</td>
                                                 <td>
                                                     <ul class="list-inline hstack gap-2 mb-0">
