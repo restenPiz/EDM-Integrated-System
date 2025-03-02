@@ -60,7 +60,7 @@ class PTEDM extends Component
     public function update($id)
     {
         $this->validate([
-            'edit_name' => 'required|string|max:255',
+            'edit_name' => 'required|string|max:255|',
             'edit_city' => 'required|string|max:255',
             'edit_neighborhood' => 'required|string|max:255',
         ]);
@@ -79,6 +79,7 @@ class PTEDM extends Component
             $this->fetchPts();
         } else {
             session()->flash('error', 'Failed to update PT-EDM!');
+            $this->dispatch('close-edit-modal');
             $this->dispatch('hide-alerts');
         }
     }
