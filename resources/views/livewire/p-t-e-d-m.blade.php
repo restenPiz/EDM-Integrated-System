@@ -214,7 +214,7 @@
                                                     });
                                                 </script>
 
-                                                <div wire:ignore.self  class="modal fade" id="shwModal"
+                                                <div class="modal fade" id="shwModal"
                                                     tabindex="-1" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content">
