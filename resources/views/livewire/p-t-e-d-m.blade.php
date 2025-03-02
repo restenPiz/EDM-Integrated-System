@@ -177,7 +177,7 @@
                                                             <li class="list-inline-item edit" data-bs-toggle="tooltip"
                                                                 data-bs-trigger="hover" data-bs-placement="top"
                                                                 title="Edit">
-                                                                <a href="#shwModal{{$pt['id']}}"
+                                                                <a href="#"
                                                                     wire:click="edit({{ $pt['id'] }})"
                                                                     class="text-primary d-inline-block edit-item-btn">
                                                                     <i class="ri-pencil-fill fs-16"></i>
