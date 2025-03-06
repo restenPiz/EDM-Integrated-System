@@ -4,9 +4,11 @@ namespace App\Livewire;
 
 use Illuminate\Support\Facades\Http;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Users extends Component
 {
+    use WithFileUploads;
     public $name, $id, $file, $password, $email;
     public function render()
     {

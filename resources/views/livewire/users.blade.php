@@ -197,7 +197,13 @@
                                                                     </div>
                                                                 </div>
                                                             </label>
-                                                            <input wire:model="file" class="form-control d-none" value="" id="customer-image-input" type="file" accept="image/png, image/gif, image/jpeg">
+                                                            <input wire:model="file" class="form-control d-none" id="customer-image-input" type="file" accept="image/png, image/gif, image/jpeg" 
+                                                            data-bs-backdrop="static">
+                                                            <script>
+                                                                document.getElementById("customer-image-input").addEventListener("click", function(event) {
+                                                                    event.stopPropagation(); // Impede que o clique feche o modal
+                                                                });
+                                                            </script>
                                                         </div>
                                                         <div class="avatar-lg p-1">
                                                             <div class="avatar-title bg-light rounded-circle">
