@@ -175,7 +175,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="modal fade" id="showModal" tabindex="-1" aria-hidden="true">
+                            <div  wire:ignore.self class="modal fade" id="showModal" tabindex="-1" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header bg-light p-3">
@@ -197,13 +197,8 @@
                                                                     </div>
                                                                 </div>
                                                             </label>
-                                                            <input wire:model="file" class="form-control d-none" id="customer-image-input" type="file" accept="image/png, image/gif, image/jpeg" 
+                                                            <input wire:ignore wire:model="file" class="form-control d-none" id="customer-image-input" type="file" accept="image/png, image/gif, image/jpeg" 
                                                             data-bs-backdrop="static">
-                                                            <script>
-                                                                document.getElementById("customer-image-input").addEventListener("click", function(event) {
-                                                                    event.stopPropagation(); // Impede que o clique feche o modal
-                                                                });
-                                                            </script>
                                                         </div>
                                                         <div class="avatar-lg p-1">
                                                             <div class="avatar-title bg-light rounded-circle">
@@ -212,6 +207,18 @@
                                                         </div>
                                                     </div>
                                                 </div>
+
+                                                <script>
+                                                    document.getElementById('customer-image-input').addEventListener('change', function(event) {
+                                                        let file = event.target.files[0];
+                                                        if (file) {
+                                                            @this.upload('file', file, () => {}, () => {}); 
+                                                        }
+                                                    });
+                                                    document.getElementById('customer-image-input').addEventListener('click', function(event) {
+                                                        event.stopPropagation();
+                                                    });
+                                                </script>
 
                                                 <div class="mb-3">
                                                     <label for="customername-field" class="form-label">User
@@ -233,7 +240,7 @@
 
                                                 <div class="mb-3">
                                                     <label for="phone-field" class="form-label">Password Confirmation</label>
-                                                    <input wire:model="password_confirmation" type="password" id="phone-field" class="form-control" required />
+                                                    <input wire:model="password" type="password" id="phone-field" class="form-control" required />
                                                 </div>
 
                                             </div>
