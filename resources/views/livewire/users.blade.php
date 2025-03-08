@@ -184,7 +184,7 @@
                                                 aria-label="Close" id="close-modal"></button>
                                         </div>
                                         <form class="tablelist-form" autocomplete="off" method="post" 
-                                         wire:submit.prevent="save">
+                                         wire:submit="save">
                                             <div class="modal-body">
 
                                                 <div class="text-center">
@@ -243,7 +243,7 @@
                                                 <div class="hstack gap-2 justify-content-end">
                                                     <button type="button" class="btn btn-light"
                                                         data-bs-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-success" id="add-btn">Add
+                                                    <button name="submit" type="submit" class="btn btn-success" id="add-btn">Add
                                                         User</button>
                                                     <!-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> -->
                                                 </div>
