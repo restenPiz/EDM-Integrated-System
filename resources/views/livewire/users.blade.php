@@ -238,11 +238,6 @@
                                                     <input wire:model="password" type="password" id="phone-field" class="form-control" required />
                                                 </div>
 
-                                                <div class="mb-3">
-                                                    <label for="phone-field" class="form-label">Password Confirmation</label>
-                                                    <input wire:model="password" type="password" id="phone-field" class="form-control" required />
-                                                </div>
-
                                             </div>
                                             <div class="modal-footer">
                                                 <div class="hstack gap-2 justify-content-end">
