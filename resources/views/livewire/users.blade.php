@@ -106,47 +106,57 @@
                                             </tr>
                                         </thead>
                                         <tbody class="list form-check-all">
-                                            <tr>
-                                                <th scope="row">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" name="chk_child"
-                                                            value="option1">
-                                                    </div>
-                                                </th>
-                                               <td>
-                                                    <div class="d-flex gap-2 align-items-center">
-                                                        <div class="flex-shrink-0">
-                                                            <img src="assets/images/users/avatar-1.jpg" alt="" class="avatar-xs rounded-circle" />
+                                            @foreach ($users as $user)
+                                                <tr>
+                                                    <th scope="row">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" name="chk_child"
+                                                                value="option1">
                                                         </div>
-                                                        <div class="flex-grow-1">
-                                                            Jason schuller
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="email">marycousar@velzon.com</td>
-                                                <td class="date">06 Apr, 2021</td>
-                                                <td class="date">06 Apr, 2021</td>
+                                                    </th>
                                                 <td>
-                                                    <ul class="list-inline hstack gap-2 mb-0">
-                                                        <li class="list-inline-item edit" data-bs-toggle="tooltip"
-                                                            data-bs-trigger="hover" data-bs-placement="top"
-                                                            title="Edit">
-                                                            <a href="#showModal" data-bs-toggle="modal"
-                                                                class="text-primary d-inline-block edit-item-btn">
-                                                                <i class="ri-pencil-fill fs-16"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li class="list-inline-item" data-bs-toggle="tooltip"
-                                                            data-bs-trigger="hover" data-bs-placement="top"
-                                                            title="Remove">
-                                                            <a class="text-danger d-inline-block remove-item-btn"
-                                                                data-bs-toggle="modal" href="#deleteRecordModal">
-                                                                <i class="ri-delete-bin-5-fill fs-16"></i>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
+                                                        <div class="d-flex gap-2 align-items-center">
+                                                            <div class="flex-shrink-0">
+                                                                {{-- <p>{{ env('API_IMG') . '/storage/' . $user['file']  }}</p> --}}
+                                                                @if(isset($user['file']) && !empty($user['file']))
+                                                                    @php
+                                                                        $imageUrl = Str::startsWith($user['file'], 'http') ? $user['file'] : env('API_IMG') . '/storage/' . $user['file'];
+                                                                    @endphp
+                                                                    <img src="{{ $imageUrl }}" alt="User Image" class="avatar-xs rounded-circle" />
+                                                                @else
+                                                                    <img src="{{ asset('assets/images/default-user.png') }}" alt="Default User" class="avatar-xs rounded-circle" />
+                                                                @endif
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                {{$user['name']}}
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="email">{{$user['email']}}</td>
+                                                    <td class="date">{{$user['created_at']}}</td>
+                                                    <td class="date">{{$user['updated_at']}}</td>
+                                                    <td>
+                                                        <ul class="list-inline hstack gap-2 mb-0">
+                                                            <li class="list-inline-item edit" data-bs-toggle="tooltip"
+                                                                data-bs-trigger="hover" data-bs-placement="top"
+                                                                title="Edit">
+                                                                <a href="#showModal" data-bs-toggle="modal"
+                                                                    class="text-primary d-inline-block edit-item-btn">
+                                                                    <i class="ri-pencil-fill fs-16"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li class="list-inline-item" data-bs-toggle="tooltip"
+                                                                data-bs-trigger="hover" data-bs-placement="top"
+                                                                title="Remove">
+                                                                <a class="text-danger d-inline-block remove-item-btn"
+                                                                    data-bs-toggle="modal" href="#deleteRecordModal">
+                                                                    <i class="ri-delete-bin-5-fill fs-16"></i>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                     <div class="noresult" style="display: none">

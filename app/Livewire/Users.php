@@ -26,7 +26,15 @@ class Users extends Component
         $response = Http::get(env('API_URL') . '/users');
 
         if ($response->successful()) {
-            $this->users = $response->json()['users'] ?? [];
+            $users = $response->json()['users'] ?? [];
+
+            foreach ($users as &$user) {
+                if (!empty($user['file'])) {
+                    $user['file'] = asset('storage/' . $user['file']);
+                }
+            }
+
+            $this->users = $users;
         }
     }
     public function save()
