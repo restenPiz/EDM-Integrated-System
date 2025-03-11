@@ -216,7 +216,7 @@
                                                             <div class="modal-header bg-light p-3">
                                                                 <h5 class="modal-title" id="exampleModalLabel"></h5>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                                    aria-label="Close" id="close-modal"></button>
+                                                                    aria-label="Close" id="close-modal" wire:click="$dispatch('close-edit-modal')"></button>
                                                             </div>
                                                             <form class="tablelist-form" autocomplete="off" method="post" 
                                                             wire:submit="update">
@@ -277,7 +277,7 @@
                                                                 <div class="modal-footer">
                                                                     <div class="hstack gap-2 justify-content-end">
                                                                         <button type="button" class="btn btn-light"
-                                                                            data-bs-dismiss="modal">Close</button>
+                                                                            data-bs-dismiss="modal" wire:click="$dispatch('close-edit-modal')">Close</button>
                                                                         <button type="submit" class="btn btn-success" id="add-btn">Update
                                                                             User</button>
                                                                     </div>
