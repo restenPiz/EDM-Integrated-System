@@ -8,8 +8,8 @@ use Livewire\WithFileUploads;
 
 class Users extends Component
 {
-    // use WithFileUploads;
-    public $name, $password, $email;
+    use WithFileUploads;
+    public $name, $password, $email, $file;
 
     public function render()
     {
@@ -17,28 +17,27 @@ class Users extends Component
     }
     public function save()
     {
-        // $this->validate([
-        //     'name' => 'required|string|max:255',
-        //     'file' => 'file|mimes:jpg,png,pdf',
-        //     'password' => 'required|string|min:6|max:255',
-        //     'email' => 'required|email|max:255',
-        // ]);
+        $this->validate([
+            'name' => 'required|string|max:255',
+            'file' => 'file|mimes:jpg,png,pdf',
+            'password' => 'required|string|min:6|max:255',
+            'email' => 'required|email|max:255',
+        ]);
 
         $response = Http::post(env('API_URL') . '/storeUsers', [
             'name' => $this->name,
             'password' => $this->password,
             'email' => $this->email,
-            // 'file' => $this->file,
+            'file' => $this->file,
         ]);
 
         if ($response->successful()) {
             session()->flash('success', 'User added with success!');
-            $this->reset(['name', 'email', 'password']);
+            $this->reset(['name', 'email', 'file', 'password']);
             $this->dispatch('hide-alerts');
         } else {
             session()->flash('error', 'Failed to add User!');
             $this->dispatch('hide-alerts');
-            // dd($this->all());
         }
     }
 }
