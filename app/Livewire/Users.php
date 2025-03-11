@@ -76,4 +76,17 @@ class Users extends Component
             $this->dispatch('close-add-modal');
         }
     }
+    public function delete($id)
+    {
+        $response = Http::post(env('API_URL') . "/deleteUsers/{$id}");
+
+        if ($response->successful()) {
+            session()->flash('success', 'User deleted with success!');
+            $this->dispatch('hide-alerts');
+            $this->fetchUsers();
+        } else {
+            session()->flash('error', 'Failed to delete User!');
+            $this->dispatch('hide-alerts');
+        }
+    }
 }
