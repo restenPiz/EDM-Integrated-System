@@ -140,7 +140,7 @@
                                                             <li class="list-inline-item edit" data-bs-toggle="tooltip"
                                                                 data-bs-trigger="hover" data-bs-placement="top"
                                                                 title="Edit">
-                                                                <a href="#" wire:click="edit({{ $pt['id'] }})" data-bs-toggle="modal"
+                                                                <a href="#" wire:click="edit({{ $user['id'] }})" data-bs-toggle="modal"
                                                                     class="text-primary d-inline-block edit-item-btn">
                                                                     <i class="ri-pencil-fill fs-16"></i>
                                                                 </a>
@@ -210,7 +210,7 @@
                                                     });
                                                 </script>
 
-                                                <div  wire:ignore.self class="modal fade" id="showModal" tabindex="-1" aria-hidden="true">
+                                                <div wire:ignore.self class="modal fade" id="shwModal" tabindex="-1" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content">
                                                             <div class="modal-header bg-light p-3">
@@ -219,7 +219,7 @@
                                                                     aria-label="Close" id="close-modal"></button>
                                                             </div>
                                                             <form class="tablelist-form" autocomplete="off" method="post" 
-                                                            wire:submit="save">
+                                                            wire:submit="update">
                                                                 <div class="modal-body">
 
                                                                     <div class="text-center">
@@ -232,7 +232,7 @@
                                                                                         </div>
                                                                                     </div>
                                                                                 </label>
-                                                                                <input wire:ignore wire:model="file" class="form-control d-none" id="customer-image-input" type="file" accept="image/png, image/gif, image/jpeg" 
+                                                                                <input wire:ignore wire:model="edit_file" class="form-control d-none" id="customer-image-input" type="file" accept="image/png, image/gif, image/jpeg" 
                                                                                 data-bs-backdrop="static">
                                                                             </div>
                                                                             <div class="avatar-lg p-1">
@@ -258,19 +258,19 @@
                                                                     <div class="mb-3">
                                                                         <label for="customername-field" class="form-label">User
                                                                             Name</label>
-                                                                        <input type="text" id="customername-field" wire:model="name"
+                                                                        <input type="text" id="customername-field" wire:model="edit_name"
                                                                             class="form-control" placeholder="Enter name" required />
                                                                     </div>
 
                                                                     <div class="mb-3">
                                                                         <label for="email-field" class="form-label">Email</label>
                                                                         <input type="email" id="email-field" class="form-control"
-                                                                            placeholder="Enter email" wire:model="email" required />
+                                                                            placeholder="Enter email" wire:model="edit_email" required />
                                                                     </div>
 
                                                                     <div class="mb-3">
                                                                         <label for="phone-field" class="form-label">Password</label>
-                                                                        <input wire:model="password" type="password" id="phone-field" class="form-control" required />
+                                                                        <input wire:model="edit_password" type="password" id="phone-field" class="form-control" required />
                                                                     </div>
 
                                                                 </div>
@@ -278,7 +278,7 @@
                                                                     <div class="hstack gap-2 justify-content-end">
                                                                         <button type="button" class="btn btn-light"
                                                                             data-bs-dismiss="modal">Close</button>
-                                                                        <button type="submit" class="btn btn-success" id="add-btn">Add
+                                                                        <button type="submit" class="btn btn-success" id="add-btn">Update
                                                                             User</button>
                                                                     </div>
                                                                 </div>

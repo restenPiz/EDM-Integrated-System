@@ -98,10 +98,50 @@ class Users extends Component
             $this->edit_id = $user['id'];
             $this->edit_name = $user['name'];
             $this->edit_email = $user['email'];
-            $this->edit_password = $user['password'];
             $this->edit_file = $user['file'];
             // usleep(200000); // 200ms 
             $this->dispatch('show-edit-modal');
+        }
+    }
+    public function update($id)
+    {
+        $this->validate([
+            'name' => 'required|string|max:255',
+            'password' => 'required|string|min:6|max:255',
+            'email' => 'required|email|max:255',
+        ]);
+
+        if ($this->file) {
+            $response = Http::attach(
+                'file',
+                file_get_contents($this->file->getRealPath()),
+                $this->file->getClientOriginalName()
+            )->post(
+                    env('API_URL') . '/updateUsers/{$id}',
+                    [
+                        'name' => $this->name,
+                        'password' => bcrypt($this->password), // Garante que a senha será criptografada antes de salvar
+                        'email' => $this->email,
+                    ]
+                );
+        } else {
+            $response = Http::post(env('API_URL') . '/updateUsers/{$id}', [
+                'name' => $this->name,
+                'password' => bcrypt($this->password),
+                'email' => $this->email,
+            ]);
+        }
+
+        if ($response->successful()) {
+            session()->flash('success', 'User updated with success!');
+            $this->reset(['edit_name', 'edit_email', 'edit_file']);
+            $this->dispatch('hide-alerts');
+            $this->dispatch('close-edit-modal');
+            $this->fetchUsers();
+        } else {
+            session()->flash('error', 'Failed to update User!');
+            $this->dispatch('hide-alerts');
+            $this->dispatch('close-edit-modal');
         }
     }
 }
