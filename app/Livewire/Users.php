@@ -46,7 +46,8 @@ class Users extends Component
                         'name' => $this->name,
                         'password' => bcrypt($this->password), // Garante que a senha será criptografada antes de salvar
                         'email' => $this->email,
-                    ]);
+                    ]
+                );
         } else {
             $response = Http::post(env('API_URL') . '/storeUsers', [
                 'name' => $this->name,
