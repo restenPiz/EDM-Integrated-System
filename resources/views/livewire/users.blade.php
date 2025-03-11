@@ -133,8 +133,8 @@
                                                         </div>
                                                     </td>
                                                     <td class="email">{{$user['email']}}</td>
-                                                    <td class="date">{{$user['created_at']}}</td>
-                                                    <td class="date">{{$user['updated_at']}}</td>
+                                                    <td class="date">{{\Carbon\Carbon::parse($user['created_at'])->format('d/m/Y H:i')}}</td>
+                                                    <td class="date">{{\Carbon\Carbon::parse($user['created_at'])->format('d/m/Y H:i')}}</td>
                                                     <td>
                                                         <ul class="list-inline hstack gap-2 mb-0">
                                                             <li class="list-inline-item edit" data-bs-toggle="tooltip"
