@@ -37,12 +37,23 @@ class Users extends Component
             'email' => 'required|email|max:255',
         ]);
 
-        $response = Http::post(env('API_URL') . '/storeUsers', [
-            'name' => $this->name,
-            'password' => $this->password,
-            'email' => $this->email,
-            'file' => $this->file,
-        ]);
+        if ($this->file) {
+            $response = Http::attach(
+                'file',
+                file_get_contents($this->file->getRealPath()),
+                $this->file->getClientOriginalName()
+            )->post(env('API_URL') . '/storeUsers', [
+                        'name' => $this->name,
+                        'password' => bcrypt($this->password), // Garante que a senha será criptografada antes de salvar
+                        'email' => $this->email,
+                    ]);
+        } else {
+            $response = Http::post(env('API_URL') . '/storeUsers', [
+                'name' => $this->name,
+                'password' => bcrypt($this->password),
+                'email' => $this->email,
+            ]);
+        }
 
         if ($response->successful()) {
             session()->flash('success', 'User added with success!');
