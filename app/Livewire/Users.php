@@ -12,7 +12,7 @@ class Users extends Component
     public $file;
 
     public $name, $password, $email, $users;
-    public $edit_name, $edit_password, $edit_email;
+    public $edit_name, $edit_password, $edit_email, $edit_file;
 
     public function mount()
     {
@@ -88,6 +88,20 @@ class Users extends Component
         } else {
             session()->flash('error', 'Failed to delete User!');
             $this->dispatch('hide-alerts');
+        }
+    }
+    public function edit($id)
+    {
+        $user = collect($this->users)->where('id', $id)->first();
+
+        if ($user) {
+            $this->edit_id = $user['id'];
+            $this->edit_name = $user['name'];
+            $this->edit_email = $user['email'];
+            $this->edit_password = $user['password'];
+            $this->edit_file = $user['file'];
+            // usleep(200000); // 200ms 
+            $this->dispatch('show-edit-modal');
         }
     }
 }

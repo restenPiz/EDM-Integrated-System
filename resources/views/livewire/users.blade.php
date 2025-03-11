@@ -140,7 +140,7 @@
                                                             <li class="list-inline-item edit" data-bs-toggle="tooltip"
                                                                 data-bs-trigger="hover" data-bs-placement="top"
                                                                 title="Edit">
-                                                                <a href="#showModal" data-bs-toggle="modal"
+                                                                <a href="#" wire:click="edit({{ $pt['id'] }})" data-bs-toggle="modal"
                                                                     class="text-primary d-inline-block edit-item-btn">
                                                                     <i class="ri-pencil-fill fs-16"></i>
                                                                 </a>
