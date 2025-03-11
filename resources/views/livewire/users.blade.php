@@ -198,7 +198,7 @@
                                          wire:submit="save">
                                             <div class="modal-body">
 
-                                                {{-- <div class="text-center">
+                                                <div class="text-center">
                                                     <div class="position-relative d-inline-block">
                                                         <div class="position-absolute  bottom-0 end-0">
                                                             <label for="customer-image-input" class="mb-0" data-bs-toggle="tooltip" data-bs-placement="right" title="Select Image">
@@ -229,7 +229,7 @@
                                                     document.getElementById('customer-image-input').addEventListener('click', function(event) {
                                                         event.stopPropagation();
                                                     });
-                                                </script> --}}
+                                                </script>
 
                                                 <div class="mb-3">
                                                     <label for="customername-field" class="form-label">User
@@ -263,7 +263,6 @@
                                 </div>
                             </div>
 
-                            <!-- Modal -->
                             <div class="modal fade zoomIn" id="deleteRecordModal" tabindex="-1" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">

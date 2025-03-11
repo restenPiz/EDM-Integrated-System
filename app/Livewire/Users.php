@@ -9,7 +9,9 @@ use Livewire\WithFileUploads;
 class Users extends Component
 {
     use WithFileUploads;
-    public $name, $password, $email, $file, $users;
+    public $file;
+
+    public $name, $password, $email, $users;
 
     public function mount()
     {
@@ -31,7 +33,6 @@ class Users extends Component
     {
         $this->validate([
             'name' => 'required|string|max:255',
-            'file' => 'file|mimes:jpg,png,pdf',
             'password' => 'required|string|min:6|max:255',
             'email' => 'required|email|max:255',
         ]);
