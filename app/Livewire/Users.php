@@ -8,8 +8,8 @@ use Livewire\WithFileUploads;
 
 class Users extends Component
 {
-    use WithFileUploads;
-    public $name, $id, $file, $password, $email;
+    // use WithFileUploads;
+    public $name, $password, $email;
 
     public function render()
     {
@@ -33,12 +33,12 @@ class Users extends Component
 
         if ($response->successful()) {
             session()->flash('success', 'User added with success!');
-            $this->reset(['name', 'file', 'email', 'password']);
+            $this->reset(['name', 'email', 'password']);
             $this->dispatch('hide-alerts');
-            $this->fetchPts();
         } else {
             session()->flash('error', 'Failed to add User!');
             $this->dispatch('hide-alerts');
+            // dd($this->all());
         }
     }
 }
