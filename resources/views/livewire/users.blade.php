@@ -45,7 +45,6 @@
                             </div>
                         </div>
                         <div class="card-body border-bottom-dashed border-bottom">
-                            <form>
                                 <div class="row g-3">
                                     <div class="col-xl-6">
                                         <div class="search-box">
@@ -61,8 +60,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!--end row-->
-                            </form>
                         </div>
                         @if (session()->has('success'))
                             <div id="alert-box" class="alert alert-success">
@@ -175,6 +172,20 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <script>
+                                window.addEventListener('close-add-modal', event => {
+                                    var modal = bootstrap.Modal.getInstance(document.getElementById('showModal'));
+                                    if (modal) {
+                                        modal.hide();
+                                    }
+
+                                    setTimeout(() => {
+                                        document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+                                        document.body.classList.remove('modal-open');
+                                    }, 10);
+                                });
+                            </script>
                             <div  wire:ignore.self class="modal fade" id="showModal" tabindex="-1" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
@@ -206,9 +217,9 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div> --}}
+                                                </div> 
 
-                                                {{-- <script>
+                                                <script>
                                                     document.getElementById('customer-image-input').addEventListener('change', function(event) {
                                                         let file = event.target.files[0];
                                                         if (file) {

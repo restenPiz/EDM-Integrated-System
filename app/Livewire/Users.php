@@ -9,11 +9,23 @@ use Livewire\WithFileUploads;
 class Users extends Component
 {
     use WithFileUploads;
-    public $name, $password, $email, $file;
+    public $name, $password, $email, $file, $users;
 
+    public function mount()
+    {
+        $this->fetchUsers();
+    }
     public function render()
     {
         return view('livewire.users');
+    }
+    public function fetchUsers()
+    {
+        $response = Http::get(env('API_URL') . '/users');
+
+        if ($response->successful()) {
+            $this->users = $response->json()['users'] ?? [];
+        }
     }
     public function save()
     {
@@ -35,9 +47,12 @@ class Users extends Component
             session()->flash('success', 'User added with success!');
             $this->reset(['name', 'email', 'file', 'password']);
             $this->dispatch('hide-alerts');
+            $this->dispatch('close-add-modal');
+            $this->fetchUsers();
         } else {
             session()->flash('error', 'Failed to add User!');
             $this->dispatch('hide-alerts');
+            $this->dispatch('close-add-modal');
         }
     }
 }
