@@ -189,6 +189,104 @@
                                                         </div>
                                                     </div>
                                                 </div>
+
+                                                {{--*Start with the edit Modal--}}
+                                                <script>
+                                                    window.addEventListener('show-edit-modal', event => {
+                                                        var modal = new bootstrap.Modal(document.getElementById(`shwModal`));
+                                                        modal.show();
+                                                    });
+
+                                                    window.addEventListener('close-edit-modal', event => {
+                                                        var modal = bootstrap.Modal.getInstance(document.getElementById('shwModal'));
+                                                        if (modal) {
+                                                            modal.hide();
+                                                        }
+
+                                                        setTimeout(() => {
+                                                            document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+                                                            document.body.classList.remove('modal-open');
+                                                        }, 10);
+                                                    });
+                                                </script>
+
+                                                <div  wire:ignore.self class="modal fade" id="showModal" tabindex="-1" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header bg-light p-3">
+                                                                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                    aria-label="Close" id="close-modal"></button>
+                                                            </div>
+                                                            <form class="tablelist-form" autocomplete="off" method="post" 
+                                                            wire:submit="save">
+                                                                <div class="modal-body">
+
+                                                                    <div class="text-center">
+                                                                        <div class="position-relative d-inline-block">
+                                                                            <div class="position-absolute  bottom-0 end-0">
+                                                                                <label for="customer-image-input" class="mb-0" data-bs-toggle="tooltip" data-bs-placement="right" title="Select Image">
+                                                                                    <div class="avatar-xs cursor-pointer">
+                                                                                        <div class="avatar-title bg-light border rounded-circle text-muted">
+                                                                                            <i class="ri-image-fill"></i>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </label>
+                                                                                <input wire:ignore wire:model="file" class="form-control d-none" id="customer-image-input" type="file" accept="image/png, image/gif, image/jpeg" 
+                                                                                data-bs-backdrop="static">
+                                                                            </div>
+                                                                            <div class="avatar-lg p-1">
+                                                                                <div class="avatar-title bg-light rounded-circle">
+                                                                                    <img src="assets/images/users/user-dummy-img.jpg" id="customer-img" class="avatar-md rounded-circle object-cover" />
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div> 
+
+                                                                    <script>
+                                                                        document.getElementById('customer-image-input').addEventListener('change', function(event) {
+                                                                            let file = event.target.files[0];
+                                                                            if (file) {
+                                                                                @this.upload('file', file, () => {}, () => {}); 
+                                                                            }
+                                                                        });
+                                                                        document.getElementById('customer-image-input').addEventListener('click', function(event) {
+                                                                            event.stopPropagation();
+                                                                        });
+                                                                    </script>
+
+                                                                    <div class="mb-3">
+                                                                        <label for="customername-field" class="form-label">User
+                                                                            Name</label>
+                                                                        <input type="text" id="customername-field" wire:model="name"
+                                                                            class="form-control" placeholder="Enter name" required />
+                                                                    </div>
+
+                                                                    <div class="mb-3">
+                                                                        <label for="email-field" class="form-label">Email</label>
+                                                                        <input type="email" id="email-field" class="form-control"
+                                                                            placeholder="Enter email" wire:model="email" required />
+                                                                    </div>
+
+                                                                    <div class="mb-3">
+                                                                        <label for="phone-field" class="form-label">Password</label>
+                                                                        <input wire:model="password" type="password" id="phone-field" class="form-control" required />
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <div class="hstack gap-2 justify-content-end">
+                                                                        <button type="button" class="btn btn-light"
+                                                                            data-bs-dismiss="modal">Close</button>
+                                                                        <button type="submit" class="btn btn-success" id="add-btn">Add
+                                                                            User</button>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
                                             @endforeach
                                         </tbody>
                                     </table>
