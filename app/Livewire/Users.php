@@ -10,7 +10,7 @@ class Users extends Component
 {
     use WithFileUploads;
     public $name, $id, $file, $password, $email;
-    
+
     public function render()
     {
         return view('livewire.users');
@@ -28,7 +28,7 @@ class Users extends Component
             'name' => $this->name,
             'password' => $this->password,
             'email' => $this->email,
-            'file' => $this->file,
+            // 'file' => $this->file,
         ]);
 
         if ($response->successful()) {

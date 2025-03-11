@@ -187,7 +187,7 @@
                                          wire:submit="save">
                                             <div class="modal-body">
 
-                                                <div class="text-center">
+                                                {{-- <div class="text-center">
                                                     <div class="position-relative d-inline-block">
                                                         <div class="position-absolute  bottom-0 end-0">
                                                             <label for="customer-image-input" class="mb-0" data-bs-toggle="tooltip" data-bs-placement="right" title="Select Image">
@@ -206,9 +206,9 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> --}}
 
-                                                <script>
+                                                {{-- <script>
                                                     document.getElementById('customer-image-input').addEventListener('change', function(event) {
                                                         let file = event.target.files[0];
                                                         if (file) {
@@ -218,7 +218,7 @@
                                                     document.getElementById('customer-image-input').addEventListener('click', function(event) {
                                                         event.stopPropagation();
                                                     });
-                                                </script>
+                                                </script> --}}
 
                                                 <div class="mb-3">
                                                     <label for="customername-field" class="form-label">User
@@ -245,7 +245,6 @@
                                                         data-bs-dismiss="modal">Close</button>
                                                     <button name="submit" type="submit" class="btn btn-success" id="add-btn">Add
                                                         User</button>
-                                                    <!-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> -->
                                                 </div>
                                             </div>
                                         </form>
