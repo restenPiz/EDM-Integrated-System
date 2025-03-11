@@ -254,7 +254,7 @@
                                                 <div class="hstack gap-2 justify-content-end">
                                                     <button type="button" class="btn btn-light"
                                                         data-bs-dismiss="modal">Close</button>
-                                                    <button name="submit" type="submit" class="btn btn-success" id="add-btn">Add
+                                                    <button type="submit" class="btn btn-success" id="add-btn">Add
                                                         User</button>
                                                 </div>
                                             </div>
