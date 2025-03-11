@@ -12,6 +12,7 @@ class Users extends Component
     public $file;
 
     public $name, $password, $email, $users;
+    public $edit_name, $edit_password, $edit_email;
 
     public function mount()
     {
