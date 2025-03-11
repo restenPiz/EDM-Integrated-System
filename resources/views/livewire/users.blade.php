@@ -119,10 +119,10 @@
                                                             <div class="flex-shrink-0">
                                                                 {{-- <p>{{ env('API_IMG') . '/storage/' . $user['file']  }}</p> --}}
                                                                 @if(isset($user['file']) && !empty($user['file']))
-                                                                    @php
+                                                                    {{-- @php
                                                                         $imageUrl = Str::startsWith($user['file'], 'http') ? $user['file'] : env('API_IMG') . '/storage/' . $user['file'];
-                                                                    @endphp
-                                                                    <img src="{{ $imageUrl }}" alt="User Image" class="avatar-xs rounded-circle" />
+                                                                    @endphp --}}
+                                                                    <img src="{{$user['file']}}" alt="User Image" class="avatar-xs rounded-circle" />
                                                                 @else
                                                                     <img src="{{ asset('assets/images/default-user.png') }}" alt="Default User" class="avatar-xs rounded-circle" />
                                                                 @endif
