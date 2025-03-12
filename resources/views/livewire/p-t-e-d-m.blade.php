@@ -193,138 +193,7 @@
                                                     </td>
                                                 </tr>
 
-                                                {{-- *Modal Edit --}}
-
-                                                <script>
-                                                    window.addEventListener('show-edit-modal', event => {
-                                                        var modal = new bootstrap.Modal(document.getElementById(`shwModal`));
-                                                        modal.show();
-                                                    });
-
-                                                    window.addEventListener('close-edit-modal', () => {
-                                                        var modals = document.querySelectorAll('shwModal');
-                                                        modals.forEach(modal => {
-                                                            var modalInstance = bootstrap.Modal.getInstance(modal);
-                                                            if (modalInstance) {
-                                                                modalInstance.hide();
-                                                            }
-                                                        });
-
-                                                        // Remover backdrop manualmente
-                                                        setTimeout(() => {
-                                                            document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
-                                                            document.body.classList.remove('modal-open');
-                                                        }, 500);
-                                                    });
-                                                </script>
-
-                                                <div wire:ignore.self class="modal fade zoomIn" id="shwModal"
-                                                    tabindex="-1" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header bg-light p-3">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Update
-                                                                    PT - EDM</h5>
-                                                                <button type="button" class="btn-close"
-                                                                    data-bs-dismiss="modal" aria-label="Close"
-                                                                    id="close-modal"
-                                                                    wire:click="$dispatch('close-edit-modal')">
-                                                                </button>
-                                                            </div>
-
-                                                            <form class="tablelist-form"
-                                                                wire:submit.prevent="update({{ $edit_id }})">
-                                                                <div class="modal-body">
-                                                                    <input type="hidden" wire:model="edit_id" />
-
-                                                                    <div class="mb-3">
-                                                                        <label for="customername-field"
-                                                                            class="form-label">PT Name / Code</label>
-                                                                        <input type="text"
-                                                                            class="form-control @error('edit_name') is-invalid @enderror"
-                                                                            wire:model="edit_name" required />
-                                                                        @error('edit_name')
-                                                                            <span class="text-danger"
-                                                                                x-data="{ show: true }"
-                                                                                x-init="setTimeout(() => show = false, 10000)" x-show="show">
-                                                                                {{ $message }}
-                                                                            </span>
-                                                                        @enderror
-                                                                    </div>
-
-                                                                    <div class="mb-3">
-                                                                        <label for="status-field"
-                                                                            class="form-label">City or Province</label>
-                                                                        <select
-                                                                            class="form-control @error('edit_city') is-invalid @enderror"
-                                                                            wire:model="edit_city" required>
-                                                                            <option value="">Select a city
-                                                                            </option>
-                                                                            <option value="Maputo">Maputo (Cidade)
-                                                                            </option>
-                                                                            <option value="Maputo_Provincia">Maputo
-                                                                                (Província)</option>
-                                                                            <option value="Gaza">Gaza</option>
-                                                                            <option value="Inhambane">Inhambane
-                                                                            </option>
-                                                                            <option value="Sofala">Sofala</option>
-                                                                            <option value="Manica">Manica</option>
-                                                                            <option value="Tete">Tete</option>
-                                                                            <option value="Zambezia">Zambézia</option>
-                                                                            <option value="Nampula">Nampula</option>
-                                                                            <option value="Cabo_Delgado">Cabo Delgado
-                                                                            </option>
-                                                                            <option value="Niassa">Niassa</option>
-                                                                        </select>
-                                                                        @error('edit_city')
-                                                                            <span class="text-danger"
-                                                                                x-data="{ show: true }"
-                                                                                x-init="setTimeout(() => show = false, 10000)" x-show="show">
-                                                                                {{ $message }}
-                                                                            </span>
-                                                                        @enderror
-                                                                    </div>
-
-                                                                    <div class="mb-3">
-                                                                        <label for="status-field"
-                                                                            class="form-label">Country</label>
-                                                                        <select
-                                                                            class="form-control @error('edit_neighborhood') is-invalid @enderror"
-                                                                            wire:model="edit_neighborhood" required>
-                                                                            <option value="">Select a Country
-                                                                            </option>
-                                                                            <option value="Mozambique">Mozambique
-                                                                            </option>
-                                                                        </select>
-                                                                        @error('edit_neighborhood')
-                                                                            <span class="text-danger"
-                                                                                x-data="{ show: true }"
-                                                                                x-init="setTimeout(() => show = false, 10000)" x-show="show">
-                                                                                {{ $message }}
-                                                                            </span>
-                                                                        @enderror
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="modal-footer">
-                                                                    <div class="hstack gap-2 justify-content-end">
-                                                                        <button type="button" class="btn btn-light"
-                                                                            data-bs-dismiss="modal"
-                                                                            wire:click="$dispatch('close-edit-modal')">
-                                                                            Close
-                                                                        </button>
-                                                                        <button type="submit" class="btn btn-success"
-                                                                            id="add-btn">
-                                                                            Update PT
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
+                                                
                                                 {{-- *End Modal --}}
 
                                                 <!-- Modal -->
@@ -369,6 +238,140 @@
                                             @endforeach
                                         </tbody>
                                     </table>
+
+                                    {{--*Start with the edit modal--}}
+                                    <script>
+                                        window.addEventListener('show-edit-modal', event => {
+                                            var modal = new bootstrap.Modal(document.getElementById(`shwModal`));
+                                            modal.show();
+                                        });
+
+                                        window.addEventListener('close-edit-modal', () => {
+                                            var modals = document.querySelectorAll('shwModal');
+                                            modals.forEach(modal => {
+                                                var modalInstance = bootstrap.Modal.getInstance(modal);
+                                                if (modalInstance) {
+                                                    modalInstance.hide();
+                                                }
+                                            });
+
+                                            // Remover backdrop manualmente
+                                            setTimeout(() => {
+                                                document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+                                                document.body.classList.remove('modal-open');
+                                            }, 500);
+                                        });
+                                    </script>
+
+                                    <div class="modal fade zoomIn" id="shwModal"
+                                        tabindex="-1" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header bg-light p-3">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Update
+                                                        PT - EDM</h5>
+                                                    <button type="button" class="btn-close"
+                                                        data-bs-dismiss="modal" aria-label="Close"
+                                                        id="close-modal"
+                                                        wire:click="$dispatch('close-edit-modal')">
+                                                    </button>
+                                                </div>
+
+                                                <form class="tablelist-form"
+                                                    wire:submit.prevent="update({{ $edit_id }})">
+                                                    <div class="modal-body">
+                                                        <input type="hidden" wire:model="edit_id" />
+
+                                                        <div class="mb-3">
+                                                            <label for="customername-field"
+                                                                class="form-label">PT Name / Code</label>
+                                                            <input type="text"
+                                                                class="form-control @error('edit_name') is-invalid @enderror"
+                                                                wire:model="edit_name" required />
+                                                            @error('edit_name')
+                                                                <span class="text-danger"
+                                                                    x-data="{ show: true }"
+                                                                    x-init="setTimeout(() => show = false, 10000)" x-show="show">
+                                                                    {{ $message }}
+                                                                </span>
+                                                            @enderror
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                            <label for="status-field"
+                                                                class="form-label">City or Province</label>
+                                                            <select
+                                                                class="form-control @error('edit_city') is-invalid @enderror"
+                                                                wire:model="edit_city" required>
+                                                                <option value="">Select a city
+                                                                </option>
+                                                                <option value="Maputo">Maputo (Cidade)
+                                                                </option>
+                                                                <option value="Maputo_Provincia">Maputo
+                                                                    (Província)</option>
+                                                                <option value="Gaza">Gaza</option>
+                                                                <option value="Inhambane">Inhambane
+                                                                </option>
+                                                                <option value="Sofala">Sofala</option>
+                                                                <option value="Manica">Manica</option>
+                                                                <option value="Tete">Tete</option>
+                                                                <option value="Zambezia">Zambézia</option>
+                                                                <option value="Nampula">Nampula</option>
+                                                                <option value="Cabo_Delgado">Cabo Delgado
+                                                                </option>
+                                                                <option value="Niassa">Niassa</option>
+                                                            </select>
+                                                            @error('edit_city')
+                                                                <span class="text-danger"
+                                                                    x-data="{ show: true }"
+                                                                    x-init="setTimeout(() => show = false, 10000)" x-show="show">
+                                                                    {{ $message }}
+                                                                </span>
+                                                            @enderror
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                            <label for="status-field"
+                                                                class="form-label">Country</label>
+                                                            <select
+                                                                class="form-control @error('edit_neighborhood') is-invalid @enderror"
+                                                                wire:model="edit_neighborhood" required>
+                                                                <option value="">Select a Country
+                                                                </option>
+                                                                <option value="Mozambique">Mozambique
+                                                                </option>
+                                                            </select>
+                                                            @error('edit_neighborhood')
+                                                                <span class="text-danger"
+                                                                    x-data="{ show: true }"
+                                                                    x-init="setTimeout(() => show = false, 10000)" x-show="show">
+                                                                    {{ $message }}
+                                                                </span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="modal-footer">
+                                                        <div class="hstack gap-2 justify-content-end">
+                                                            <button type="button" class="btn btn-light"
+                                                                data-bs-dismiss="modal"
+                                                                wire:click="$dispatch('close-edit-modal')">
+                                                                Close
+                                                            </button>
+                                                            <button type="submit" class="btn btn-success"
+                                                                id="add-btn">
+                                                                Update PT
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    {{--*End of the modal--}}
+
                                     <div class="noresult" style="display: none">
                                         <div class="text-center">
                                             <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop"
