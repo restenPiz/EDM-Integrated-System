@@ -11,8 +11,8 @@ class Users extends Component
     use WithFileUploads;
     public $file;
 
-    public $name, $password, $email, $users;
-    public $edit_name, $edit_password, $edit_email, $edit_file;
+    public $name, $password, $email, $users, $id;
+    public $edit_id, $edit_name, $edit_password, $edit_email, $edit_file;
 
     public function mount()
     {
@@ -106,29 +106,29 @@ class Users extends Component
     public function update($id)
     {
         $this->validate([
-            'name' => 'required|string|max:255',
-            'password' => 'required|string|min:6|max:255',
-            'email' => 'required|email|max:255',
+            'edit_name' => 'required|string|max:255',
+            'edit_password' => 'required|string|min:6|max:255',
+            'edit_email' => 'required|email|max:255',
         ]);
 
-        if ($this->file) {
+        if ($this->edit_file) {
             $response = Http::attach(
                 'file',
-                file_get_contents($this->file->getRealPath()),
-                $this->file->getClientOriginalName()
+                file_get_contents($this->edit_file->getRealPath()),
+                $this->edit_file->getClientOriginalName()
             )->post(
                     env('API_URL') . '/updateUsers/{$id}',
                     [
-                        'name' => $this->name,
-                        'password' => bcrypt($this->password), // Garante que a senha será criptografada antes de salvar
-                        'email' => $this->email,
+                        'name' => $this->edit_name,
+                        'password' => bcrypt($this->edit_password), // Garante que a senha será criptografada antes de salvar
+                        'email' => $this->edit_email,
                     ]
                 );
         } else {
             $response = Http::post(env('API_URL') . '/updateUsers/{$id}', [
-                'name' => $this->name,
-                'password' => bcrypt($this->password),
-                'email' => $this->email,
+                'name' => $this->edit_name,
+                'password' => bcrypt($this->edit_password),
+                'email' => $this->edit_email,
             ]);
         }
 

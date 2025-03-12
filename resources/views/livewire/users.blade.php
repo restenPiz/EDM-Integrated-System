@@ -219,8 +219,9 @@
                                                                     aria-label="Close" id="close-modal" wire:click="$dispatch('close-edit-modal')"></button>
                                                             </div>
                                                             <form class="tablelist-form" autocomplete="off" method="post" 
-                                                            wire:submit="update">
+                                                            wire:submit="update({{ $edit_id }})">
                                                                 <div class="modal-body">
+                                                                    <input wire:model="edit_id" type="hidden"/>
 
                                                                     <div class="text-center">
                                                                         <div class="position-relative d-inline-block">
