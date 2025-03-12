@@ -140,7 +140,8 @@
                                                             <li class="list-inline-item edit" data-bs-toggle="tooltip"
                                                                 data-bs-trigger="hover" data-bs-placement="top"
                                                                 title="Edit">
-                                                                <a href="#" wire:click="edit({{ $user['id'] }})" data-bs-toggle="modal"
+                                                                <a href="#" wire:click="edit({{ $user['id'] }})" 
+                                                                data-bs-toggle="modal"
                                                                     class="text-primary d-inline-block edit-item-btn">
                                                                     <i class="ri-pencil-fill fs-16"></i>
                                                                 </a>
@@ -210,7 +211,7 @@
                                                     });
                                                 </script>
 
-                                                <div wire:ignore.self class="modal fade" id="shwModal" tabindex="-1" aria-hidden="true">
+                                                <div wire:ignore.self class="modal fade zoomIn" id="shwModal" tabindex="-1" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content">
                                                             <div class="modal-header bg-light p-3">
