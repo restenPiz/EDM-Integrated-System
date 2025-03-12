@@ -117,15 +117,17 @@ class Users extends Component
                 file_get_contents($this->edit_file->getRealPath()),
                 $this->edit_file->getClientOriginalName()
             )->post(
-                    env('API_URL') . '/updateUsers/{$id}',
+                    env('API_URL') . "/updateUsers/{$id}",
                     [
+                        'id' => $this->edit_id,
                         'name' => $this->edit_name,
                         'password' => bcrypt($this->edit_password), // Garante que a senha será criptografada antes de salvar
                         'email' => $this->edit_email,
                     ]
                 );
         } else {
-            $response = Http::post(env('API_URL') . '/updateUsers/{$id}', [
+            $response = Http::post(env('API_URL') . "/updateUsers/{$id}", [
+                'id' => $this->edit_id,
                 'name' => $this->edit_name,
                 'password' => bcrypt($this->edit_password),
                 'email' => $this->edit_email,
