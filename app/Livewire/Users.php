@@ -136,7 +136,7 @@ class Users extends Component
 
         if ($response->successful()) {
             session()->flash('success', 'User updated with success!');
-            $this->reset(['edit_name', 'edit_email', 'edit_file']);
+            $this->reset(['edit_name', 'edit_email', 'edit_file','edit_password']);
             $this->dispatch('hide-alerts');
             $this->dispatch('close-edit-modal');
             $this->fetchUsers();
