@@ -121,7 +121,7 @@ class Users extends Component
                     [
                         'id' => $this->edit_id,
                         'name' => $this->edit_name,
-                        'password' => bcrypt($this->edit_password), // Garante que a senha será criptografada antes de salvar
+                        'password' => bcrypt($this->edit_password),
                         'email' => $this->edit_email,
                     ]
                 );
