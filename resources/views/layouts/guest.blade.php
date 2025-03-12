@@ -8,7 +8,7 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-        {{-- <link rel="shortcut icon" href="assets/images/favicon.ico"> --}}
+        <link rel="shortcut icon" href="assets/icon.png">
         <script src="assets/js/layout.js"></script>
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
@@ -18,12 +18,6 @@
     </head>
     <body class="font-sans text-gray-900 antialiased">
         <div class="auth-page-wrapper pt-5">
-            {{-- <div>
-                <a href="/" wire:navigate>
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                </a>
-            </div> --}}
-
             {{ $slot }}
         </div>
 

@@ -24,8 +24,8 @@ new #[Layout('layouts.guest')] class extends Component
 
 <div>
     <!-- auth page bg -->
-    <div class="auth-one-bg-position auth-one-bg" id="auth-particles">
-        <div class="bg-overlay"></div>
+    <div class="auth-one-bg-position {{--auth-one-bg--}}" style="background-color:#EFB036" id="auth-particles">
+        <div class="bg-overlay" style="background-color:#EFB036"></div>
 
         <div class="shape">
             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1440 120">
@@ -41,11 +41,11 @@ new #[Layout('layouts.guest')] class extends Component
                 <div class="col-lg-12">
                     <div class="text-center mt-sm-5 mb-4 text-white-50">
                         <div>
-                            <a href="index.html" class="d-inline-block auth-logo">
-                                <img src="assets/images/logo-light.png" alt="" height="20">
+                            <a class="d-inline-block auth-logo">
+                                <img src="assets/iconw.png" alt="" height="210">
                             </a>
                         </div>
-                        <p class="mt-3 fs-15 fw-medium">Premium Admin & Dashboard Template</p>
+                        <ed class="mt-3 fs-15 fw-medium" style="color:white">EDM - Integrated System</p>
                     </div>
                 </div>
             </div>
@@ -67,16 +67,26 @@ new #[Layout('layouts.guest')] class extends Component
 
                                     <div class="mb-3">
                                         <label for="username" class="form-label">Email</label>
-                                        <input type="text" class="form-control" placeholder="Enter email" wire:model="form.email">
-                                        <x-input-error :messages="$errors->get('form.email')" class="mt-2" />
+                                        <input type="text" class="form-control @error('form.email') is-invalid @enderror" placeholder="Enter email" wire:model="form.email">
+                                        @error('form.email')
+                                            <span class="text-danger"
+                                                x-data="{ show: true }" show="show">
+                                                {{ $message }}
+                                            </span>
+                                        @enderror
                                     </div>
 
                                     <div class="mb-3">
                                         <label class="form-label" for="password-input">Password</label>
                                         <div class="position-relative auth-pass-inputgroup mb-3">
-                                            <input type="password" class="form-control pe-5 password-input" placeholder="Enter password" id="password-input" wire:model="form.password">
-                                            <x-input-error :messages="$errors->get('form.password')" class="mt-2" />
-                                            <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
+                                            <input type="password" class="form-control pe-5 password-input @error('form.password') is-invalid @enderror" placeholder="Enter password" id="password-input" wire:model="form.password">
+                                            {{-- <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button> --}}
+                                            @error('form.password')
+                                                <span class="text-danger"
+                                                    x-data="{ show: true }" x-show="show">
+                                                    {{ $message }}
+                                                </span>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -86,7 +96,7 @@ new #[Layout('layouts.guest')] class extends Component
                                     </div>
 
                                     <div class="mt-4">
-                                        <button class="btn btn-success w-100" type="submit">Sign In</button>
+                                        <button class="btn w-100" style="background-color:#EFB036;color:white" type="submit">Sign In</button>
                                     </div>
 
                                 </form>
