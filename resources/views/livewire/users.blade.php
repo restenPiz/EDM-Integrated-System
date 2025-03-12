@@ -198,16 +198,20 @@
                                                         modal.show();
                                                     });
 
-                                                    window.addEventListener('close-edit-modal', event => {
-                                                        var modal = bootstrap.Modal.getInstance(document.getElementById('shwModal'));
-                                                        if (modal) {
-                                                            modal.hide();
-                                                        }
+                                                    window.addEventListener('close-edit-modal', () => {
+                                                        var modals = document.querySelectorAll('shModal');
+                                                        modals.forEach(modal => {
+                                                            var modalInstance = bootstrap.Modal.getInstance(modal);
+                                                            if (modalInstance) {
+                                                                modalInstance.hide();
+                                                            }
+                                                        });
 
+                                                        // Remover backdrop manualmente
                                                         setTimeout(() => {
                                                             document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
                                                             document.body.classList.remove('modal-open');
-                                                        }, 0);
+                                                        }, 500);
                                                     });
                                                 </script>
 
