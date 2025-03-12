@@ -42,7 +42,7 @@ new #[Layout('layouts.guest')] class extends Component
                     <div class="text-center mt-sm-5 mb-4 text-white-50">
                         <div>
                             <a class="d-inline-block auth-logo">
-                                <img src="assets/iconw.png" alt="" height="210">
+                                <img src="assets/iconw.png" alt="" height="214">
                             </a>
                         </div>
                         <ed class="mt-3 fs-15 fw-medium" style="color:white">EDM - Integrated System</p>
@@ -58,7 +58,7 @@ new #[Layout('layouts.guest')] class extends Component
                         <div class="card-body p-4">
                             <div class="text-center mt-2">
                                 <h5 class="text-primary">Welcome Back !</h5>
-                                <p class="text-muted">Sign in to continue to EDM - Integrated System.</p>
+                                <p class="text-muted">Sign in to continue{{--to EDM - Integrated System.--}}</p>
                             </div>
                             <div class="p-2 mt-4">
                                 <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -120,7 +120,7 @@ new #[Layout('layouts.guest')] class extends Component
                 <div class="col-lg-12">
                     <div class="text-center">
                         <p class="mb-0 text-muted">&copy;
-                            <script>document.write(new Date().getFullYear())</script> EDM - Mozambique. Crafted with <i class="mdi mdi-heart text-danger"></i> by Mauro Peniel
+                            <script>document.write(new Date().getFullYear())</script> EDM - Electricidade de Moçambique {{--Crafted with <i class="mdi mdi-heart text-danger"></i> by Mauro Peniel--}}
                         </p>
                     </div>
                 </div>
