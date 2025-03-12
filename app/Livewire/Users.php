@@ -103,40 +103,36 @@ class Users extends Component
             $this->dispatch('show-edit-modal');
         }
     }
-    public function update($id)
+    public function update()
     {
         $this->validate([
             'edit_name' => 'required|string|max:255',
-            'edit_password' => 'required|string|min:6|max:255',
+            'edit_password' => 'nullable|string|min:6|max:255',
             'edit_email' => 'required|email|max:255',
         ]);
+
+        $data = [
+            'name' => $this->edit_name,
+            'email' => $this->edit_email,
+        ];
+
+        if (!empty($this->edit_password)) {
+            $data['password'] = bcrypt($this->edit_password);
+        }
 
         if ($this->edit_file) {
             $response = Http::attach(
                 'file',
                 file_get_contents($this->edit_file->getRealPath()),
                 $this->edit_file->getClientOriginalName()
-            )->post(
-                    env('API_URL') . "/updateUsers/{$id}",
-                    [
-                        'id' => $this->edit_id,
-                        'name' => $this->edit_name,
-                        'password' => bcrypt($this->edit_password),
-                        'email' => $this->edit_email,
-                    ]
-                );
+            )->post(env('API_URL') . '/updateUsers/' . $this->edit_id, $data);
         } else {
-            $response = Http::post(env('API_URL') . "/updateUsers/{$id}", [
-                'id' => $this->edit_id,
-                'name' => $this->edit_name,
-                'password' => bcrypt($this->edit_password),
-                'email' => $this->edit_email,
-            ]);
+            $response = Http::put(env('API_URL') . '/updateUsers/' . $this->edit_id, $data);
         }
 
         if ($response->successful()) {
-            session()->flash('success', 'User updated with success!');
-            $this->reset(['edit_name', 'edit_email', 'edit_file','edit_password']);
+            session()->flash('success', 'User updated successfully!');
+            $this->reset(['edit_name', 'edit_email', 'edit_file', 'edit_password']);
             $this->dispatch('hide-alerts');
             $this->dispatch('close-edit-modal');
             $this->fetchUsers();
