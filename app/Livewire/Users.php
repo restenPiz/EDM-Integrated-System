@@ -105,9 +105,10 @@ class Users extends Component
     }
     public function update()
     {
+        // dd($this->all());
         $this->validate([
             'edit_name' => 'required|string|max:255',
-            'edit_password' => 'nullable|string|min:6|max:255',
+            'edit_password' => 'nullable|string|min:6|max:255', // Senha opcional
             'edit_email' => 'required|email|max:255',
         ]);
 
@@ -116,17 +117,20 @@ class Users extends Component
             'email' => $this->edit_email,
         ];
 
+        // Só criptografa a senha se uma nova for fornecida
         if (!empty($this->edit_password)) {
             $data['password'] = bcrypt($this->edit_password);
         }
 
-        if ($this->edit_file) {
+        if ($this->edit_file instanceof \Livewire\TemporaryUploadedFile) {
+            // Faz upload do novo arquivo
             $response = Http::attach(
                 'file',
                 file_get_contents($this->edit_file->getRealPath()),
                 $this->edit_file->getClientOriginalName()
             )->post(env('API_URL') . '/updateUsers/' . $this->edit_id, $data);
         } else {
+            // Se não houver novo arquivo, apenas atualiza os dados do usuário
             $response = Http::put(env('API_URL') . '/updateUsers/' . $this->edit_id, $data);
         }
 
@@ -137,9 +141,11 @@ class Users extends Component
             $this->dispatch('close-edit-modal');
             $this->fetchUsers();
         } else {
+            $this->reset(['edit_name', 'edit_email', 'edit_file', 'edit_password']);
             session()->flash('error', 'Failed to update User!');
             $this->dispatch('hide-alerts');
             $this->dispatch('close-edit-modal');
+            $this->fetchUsers();
         }
     }
 }
