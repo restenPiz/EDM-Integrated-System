@@ -131,7 +131,7 @@ class Users extends Component
             )->post(env('API_URL') . '/updateUsers/' . $this->edit_id, $data);
         } else {
             // Se não houver novo arquivo, apenas atualiza os dados do usuário
-            $response = Http::put(env('API_URL') . '/updateUsers/' . $this->edit_id, $data);
+            $response = Http::post(env('API_URL') . '/updateUsers/' . $this->edit_id, $data);
         }
 
         if ($response->successful()) {
