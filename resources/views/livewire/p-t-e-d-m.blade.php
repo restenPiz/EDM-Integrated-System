@@ -207,14 +207,14 @@
                                                             modal.hide();
                                                         }
 
-                                                        setTimeout(() => {
-                                                            document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
-                                                            document.body.classList.remove('modal-open');
-                                                        }, 10);
+                                                        // setTimeout(() => {
+                                                        //     document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+                                                        //     document.body.classList.remove('modal-open');
+                                                        // }, 0);
                                                     });
                                                 </script>
 
-                                                <div class="modal fade" id="shwModal"
+                                                <div wire:ignore.self class="modal fade zoomIn" id="shwModal"
                                                     tabindex="-1" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content">
