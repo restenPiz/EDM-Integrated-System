@@ -114,21 +114,17 @@
                                                                 value="option1">
                                                         </div>
                                                     </th>
-                                                <td>
+                                                    <td>
                                                         <div class="d-flex gap-2 align-items-center">
                                                             <div class="flex-shrink-0">
-                                                                {{-- <p>{{ env('API_IMG') . '/storage/' . $user['file']  }}</p> --}}
                                                                 @if(isset($user['file']) && !empty($user['file']))
-                                                                    {{-- @php
-                                                                        $imageUrl = Str::startsWith($user['file'], 'http') ? $user['file'] : env('API_IMG') . '/storage/' . $user['file'];
-                                                                    @endphp --}}
-                                                                    <img src="{{$user['file']}}" alt="User Image" class="avatar-xs rounded-circle" />
+                                                                    <img src="{{ $user['file'] }}" alt="User Image" class="avatar-xs rounded-circle" />
                                                                 @else
                                                                     <img src="{{ asset('assets/images/default-user.png') }}" alt="Default User" class="avatar-xs rounded-circle" />
                                                                 @endif
                                                             </div>
                                                             <div class="flex-grow-1">
-                                                                {{$user['name']}}
+                                                                {{ $user['name'] }}
                                                             </div>
                                                         </div>
                                                     </td>
@@ -201,14 +197,14 @@
                                             modal.show();
                                         });
 
+                                        
                                         window.addEventListener('close-edit-modal', () => {
-                                            var modals = document.querySelectorAll('shModal');
-                                            modals.forEach(modal => {
-                                                var modalInstance = bootstrap.Modal.getInstance(modal);
-                                                if (modalInstance) {
-                                                    modalInstance.hide();
-                                                }
-                                            });
+                                            var modal = document.getElementById('shModal');
+                                            var modalInstance = bootstrap.Modal.getInstance(modal);
+                                            
+                                            if (modalInstance) {
+                                                modalInstance.hide();
+                                            }
 
                                             // Remover backdrop manualmente
                                             setTimeout(() => {
@@ -218,7 +214,7 @@
                                         });
                                     </script>
 
-                                    <div wire:ignore class="modal fade zoomIn" id="shModal" tabindex="-1" aria-hidden="true">
+                                    <div wire:ignore class="modal fade zoomIn" id="shModal" tabindex="-1" aria-hidden="true" wire:key="edit-user-modal">
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
                                                 <div class="modal-header bg-light p-3">

@@ -247,19 +247,18 @@
                                         });
 
                                         window.addEventListener('close-edit-modal', () => {
-                                            var modals = document.querySelectorAll('shwModal');
-                                            modals.forEach(modal => {
-                                                var modalInstance = bootstrap.Modal.getInstance(modal);
-                                                if (modalInstance) {
-                                                    modalInstance.hide();
-                                                }
-                                            });
+                                            var modal = document.getElementById('shwModal');
+                                            var modalInstance = bootstrap.Modal.getInstance(modal);
+                                            
+                                            if (modalInstance) {
+                                                modalInstance.hide();
+                                            }
 
                                             // Remover backdrop manualmente
                                             setTimeout(() => {
                                                 document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
                                                 document.body.classList.remove('modal-open');
-                                            }, 500);
+                                            }, 10);
                                         });
                                     </script>
 

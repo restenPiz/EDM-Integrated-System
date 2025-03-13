@@ -27,15 +27,7 @@ class Users extends Component
         $response = Http::get(env('API_URL') . '/users');
 
         if ($response->successful()) {
-            $users = $response->json()['users'] ?? [];
-
-            foreach ($users as &$user) {
-                if (!empty($user['file'])) {
-                    $user['file'] = asset('storage/' . $user['file']);
-                }
-            }
-
-            $this->users = $users;
+            $this->users = $response->json()['users'] ?? [];
         }
     }
     public function save()
@@ -73,6 +65,7 @@ class Users extends Component
             $this->fetchUsers();
         } else {
             session()->flash('error', 'Failed to add User!');
+            $this->reset(['name', 'email', 'file', 'password']);
             $this->dispatch('hide-alerts');
             $this->dispatch('close-add-modal');
         }
