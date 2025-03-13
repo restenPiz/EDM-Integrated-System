@@ -98,47 +98,45 @@ class Users extends Component
     }
     public function update()
     {
-        // dd($this->all());
         $this->validate([
             'edit_name' => 'required|string|max:255',
-            'edit_password' => 'nullable|string|min:6|max:255', // Senha opcional
             'edit_email' => 'required|email|max:255',
+            'edit_password' => 'nullable|string|min:6|max:255',
         ]);
 
-        $data = [
-            'name' => $this->edit_name,
-            'email' => $this->edit_email,
-        ];
-
-        // Só criptografa a senha se uma nova for fornecida
-        if (!empty($this->edit_password)) {
-            $data['password'] = bcrypt($this->edit_password);
-        }
-
-        if ($this->edit_file instanceof \Livewire\TemporaryUploadedFile) {
-            // Faz upload do novo arquivo
+        // Monta os dados que serão enviados
+        if ($this->edit_file) {
             $response = Http::attach(
                 'file',
                 file_get_contents($this->edit_file->getRealPath()),
                 $this->edit_file->getClientOriginalName()
-            )->post(env('API_URL') . '/updateUsers/' . $this->edit_id, $data);
+            )->post(
+                    env('API_URL') . '/updateUsers/' . $this->edit_id,
+                    [
+                        'name' => $this->edit_name,
+                        'password' => bcrypt($this->edit_password), // Garante que a senha será criptografada antes de salvar
+                        'email' => $this->edit_email,
+                    ]
+                );
         } else {
-            // Se não houver novo arquivo, apenas atualiza os dados do usuário
-            $response = Http::post(env('API_URL') . '/updateUsers/' . $this->edit_id, $data);
+            $response = Http::post(env('API_URL') . '/updateUsers/' . $this->edit_id, [
+                'name' => $this->edit_name,
+                'password' => bcrypt($this->edit_password),
+                'email' => $this->edit_email,
+            ]);
         }
 
         if ($response->successful()) {
             session()->flash('success', 'User updated successfully!');
-            $this->reset(['edit_name', 'edit_email', 'edit_file', 'edit_password']);
+            $this->reset(['edit_name', 'edit_email', 'edit_password', 'edit_file']);
             $this->dispatch('hide-alerts');
             $this->dispatch('close-edit-modal');
             $this->fetchUsers();
         } else {
-            $this->reset(['edit_name', 'edit_email', 'edit_file', 'edit_password']);
+            $this->reset(['edit_name', 'edit_email', 'edit_password', 'edit_file']);
             session()->flash('error', 'Failed to update User!');
             $this->dispatch('hide-alerts');
             $this->dispatch('close-edit-modal');
-            $this->fetchUsers();
         }
     }
 }
