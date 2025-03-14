@@ -23,12 +23,12 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">EDM Board</h4>
+                    <h4 class="mb-sm-0">EDM Occurence</h4>
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Tasks</a></li>
-                            <li class="breadcrumb-item active">Kanban Board</li>
+                            {{-- <li class="breadcrumb-item"><a href="javascript: void(0);">Tasks</a></li> --}}
+                            <li class="breadcrumb-item active">EDM Occurence</li>
                         </ol>
                     </div>
 
@@ -43,17 +43,17 @@
                     <div class="col-lg-auto">
                         <div class="hstack gap-2">
                             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createboardModal"><i
-                                    class="ri-add-line align-bottom me-1"></i> Create Board</button>
+                                    class="ri-add-line align-bottom me-1"></i> Create Occurence</button>
                         </div>
                     </div>
                     <!--end col-->
-                    <div class="col-lg-3 col-auto">
+                    {{-- <div class="col-lg-3 col-auto">
                         <div class="search-box">
                             <input type="text" class="form-control search" id="search-task-options"
                                 placeholder="Search for project, tasks...">
                             <i class="ri-search-line search-icon"></i>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="col-auto ms-sm-auto">
                         <div class="avatar-group" id="newMembar">
                             <a href="javascript: void(0);" class="avatar-group-item" data-bs-toggle="tooltip"
@@ -106,7 +106,7 @@
                 <h2 class="accordion-header" id="headingOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        First Board
+                        First Occurence
                     </button>
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
